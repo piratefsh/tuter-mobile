@@ -1,7 +1,5 @@
 package me.tuter.activities;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import me.tuter.R;
@@ -17,10 +15,10 @@ import android.widget.ListView;
 public class SearchResultsActivity extends Activity implements GetSearchResultsTaskActivity{
 	private ListView mResultsListView;
 	private SearchResultListAdapter mAdapter;
-	private List<String> mResults;
+	private List<Tutor> mResults;
 	private GetSearchResultsTask mGetSearchResultsTask;
 	
-	String[] values = new String[] { "CS 302", "MATH 211", "MATH 222", "CS 367", "CS 407" };
+	String[] values = new String[] { "Loading" };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,10 +33,7 @@ public class SearchResultsActivity extends Activity implements GetSearchResultsT
     private void initViews()
     {
     	//Convert array to ArrayList
-    	this.mResults = new ArrayList<String>(Arrays.asList(values));
     	this.mResultsListView = (ListView) findViewById(R.id.results_list);
-    	this.mAdapter = new SearchResultListAdapter(this, android.R.layout.simple_list_item_1, R.layout.list_single_result, this.mResults);
-    	this.mResultsListView.setAdapter(mAdapter);
     }
 
     @Override
@@ -50,8 +45,9 @@ public class SearchResultsActivity extends Activity implements GetSearchResultsT
 
 	@Override
 	public void onGetSearchResultsTaskComplete(List<Tutor> tutors) {
-		// TODO Auto-generated method stub
-		
+		this.mResults = tutors;
+		this.mAdapter = new SearchResultListAdapter(this, android.R.layout.simple_list_item_1, R.layout.list_single_result, this.mResults);
+    	this.mResultsListView.setAdapter(mAdapter);
 	}
     
 }
