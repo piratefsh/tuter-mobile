@@ -1,18 +1,17 @@
 package me.tuter.tasks;
 
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import me.tuter.TuterConstants;
 import me.tuter.http.BasicHTTPConnection;
 import me.tuter.interfaces.GetSearchResultsTaskActivity;
 import me.tuter.messages.GetSearchResultsMessage;
-import me.tutor.datastructures.Tutor;
 import android.content.Context;
 import android.os.AsyncTask;
 
 public class GetSearchResultsTask extends AsyncTask<Void, Void, GetSearchResultsMessage> {
+	public final String TAG = "GetSearchResultsTask";
 	private GetSearchResultsTaskActivity mActivity;
 	private Context mContext;
 	
@@ -31,7 +30,7 @@ public class GetSearchResultsTask extends AsyncTask<Void, Void, GetSearchResults
 	@Override
 	protected void onPostExecute(GetSearchResultsMessage m)
 	{
-		mActivity.onGetSearchResultsTaskComplete(new ArrayList<Tutor>());
+		mActivity.onGetSearchResultsTaskComplete(m.extractTutors());
 	}
 	
 	public GetSearchResultsMessage requestWebService(String serviceURL)
@@ -39,7 +38,6 @@ public class GetSearchResultsTask extends AsyncTask<Void, Void, GetSearchResults
 		BasicHTTPConnection httpConn = new BasicHTTPConnection(serviceURL);
 		InputStream in = httpConn.openHTTPConnection();
 		String rawJSON = getResponseText(in);
-		
 		httpConn.closeHTTPConnection();
 		return new GetSearchResultsMessage(rawJSON, mContext);
 	}
