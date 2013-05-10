@@ -56,13 +56,17 @@
             android:label="@string/title_activity_search_results" >
         </activity>
         <activity
-    		android:name="me.tuter.activities.SignUpActivity"
+            android:name="me.tuter.activities.SignUpActivity"
             android:label="@string/title_activity_sign_up"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
         <activity
             android:name="me.tuter.GoogleMapV2"
             android:label="@string/title_activity_google_map_v2" >
+        </activity>
+        <activity
+            android:name="me.tuter.activities.ShowUserActivity"
+            android:label="@string/title_activity_show_user" >
         </activity>
     </application>
 

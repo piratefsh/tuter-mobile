@@ -24,6 +24,11 @@
         <item name="android:padding">16dp</item>
     </style>
     
+    <style name="h1_text">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    
     <style name="h2_text">
         <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>

@@ -18,6 +18,7 @@ public class SearchResultListAdapter extends ArrayAdapter<Tutor> {
 	
 	private Context mContext;
 	private int mCustomRowLayoutId;
+	private List<Tutor> mTutors;
 	
 	HashMap<Tutor, Integer> mIdMap = new HashMap<Tutor, Integer>();
 
@@ -26,6 +27,7 @@ public class SearchResultListAdapter extends ArrayAdapter<Tutor> {
 		
 		this.mContext = context;
 		this.mCustomRowLayoutId = customRowLayoutId;
+		this.mTutors = results;
 		
 		for (int i = 0; i < results.size(); ++i) 
 		{
