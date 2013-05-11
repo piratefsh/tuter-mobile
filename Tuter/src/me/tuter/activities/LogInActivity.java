@@ -3,6 +3,7 @@ package me.tuter.activities;
 import java.io.IOException;
 
 import me.tuter.R;
+import me.tuter.TuterConstants;
 
 import org.apache.http.client.HttpResponseException;
 import org.apache.http.client.ResponseHandler;
@@ -36,21 +37,11 @@ import android.widget.TextView;
  * well.
  */
 public class LogInActivity extends Activity {
-    /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello",
-            "bar@example.com:world"
-    };
 
     /**
      * The default email to populate the email field with.
      */
     public static final String EXTRA_EMAIL = "com.example.android.authenticatordemo.extra.EMAIL";
-
-    private static final String LOGIN_API_ENDPOINT_URL = "http://tuter.herokuapp.com/api/v1/sessions.json";
     private SharedPreferences mPreferences;
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -165,7 +156,7 @@ public class LogInActivity extends Activity {
             mLoginStatusMessageView.setText(R.string.login_progress_signing_in);
             showProgress(false);
             mAuthTask = new UserLoginTask();
-            mAuthTask.execute(LOGIN_API_ENDPOINT_URL);
+            mAuthTask.execute(TuterConstants.LOGIN_API_ENDPOINT_URL);
         }
     }
 
@@ -215,7 +206,6 @@ public class LogInActivity extends Activity {
      */
     public class UserLoginTask extends AsyncTask<String, Void, JSONObject> {
         protected JSONObject doInBackground(String... urls) {
-            // TODO: attempt authentication against a network service.
         	DefaultHttpClient client = new DefaultHttpClient();
             HttpPost post = new HttpPost(urls[0]);
             JSONObject holder = new JSONObject();
@@ -259,7 +249,6 @@ public class LogInActivity extends Activity {
             	Log.e("JSON", "", e);
             }
 
-            // TODO: register the new account here.
             return json;
         }
 

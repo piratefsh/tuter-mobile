@@ -15,7 +15,6 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 
 public class WelcomeActivity extends Activity {
 	public final static String TAG = "WelcomeActivity";
-	private static final String TASKS_URL = "http://tuter.herokuapp.com/api/v1/tasks.json";
 	private Button mButtonSearch;
 	private Button mButtonSignUp;
 	private Button mButtonLogIn;
