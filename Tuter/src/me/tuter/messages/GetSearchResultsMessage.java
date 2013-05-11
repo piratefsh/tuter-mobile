@@ -45,7 +45,6 @@ public class GetSearchResultsMessage {
 			}
 		}
 		
-		Log.d(TAG, tutors.toString());
 		return tutors;
 	}
 }
