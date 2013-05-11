@@ -36,22 +36,26 @@ public class BasicHTTPConnection {
 		return urlConn.getContentLength();
 	}
 	
+	private void setUpConnection() throws IOException
+	{
+		URL urlToRequest 	= new URL(serviceURL);
+		urlConn				= (HttpURLConnection) urlToRequest.openConnection();
+		urlConn.setConnectTimeout(TuterConstants.CONN_TIMEOUT);
+		urlConn.setReadTimeout(TuterConstants.READ_TIMEOUT);
+		
+		//handle issues
+		int statusCode = urlConn.getResponseCode();
+		if(statusCode != HttpURLConnection.HTTP_OK)
+		{
+			Log.d(TAG, "Connection error: " + statusCode);
+		}
+	}
+	
 	public InputStream openHTTPConnection()
 	{
 		try
 		{
-			URL urlToRequest 	= new URL(serviceURL);
-			urlConn				= (HttpURLConnection) urlToRequest.openConnection();
-			urlConn.setConnectTimeout(TuterConstants.CONN_TIMEOUT);
-			urlConn.setReadTimeout(TuterConstants.READ_TIMEOUT);
-			
-			//handle issues
-			int statusCode = urlConn.getResponseCode();
-			if(statusCode != HttpURLConnection.HTTP_OK)
-			{
-				Log.d(TAG, "Connection error: " + statusCode);
-			}
-			
+			this.setUpConnection();
 			//if no issues, read data
 			inputStream = new BufferedInputStream(urlConn.getInputStream());
 			
