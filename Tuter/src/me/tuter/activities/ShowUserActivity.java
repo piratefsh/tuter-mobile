@@ -1,6 +1,7 @@
 package me.tuter.activities;
 
 import me.tuter.R;
+import me.tuter.adapters.GroupsListAdapter;
 import me.tuter.interfaces.GetUserDataTaskActivity;
 import me.tuter.tasks.GetUserDataTask;
 import me.tutor.datastructures.User;
@@ -11,7 +12,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,7 +21,7 @@ public class ShowUserActivity extends Activity implements GetUserDataTaskActivit
 	private Intent 			mIntent;
 	private GetUserDataTask mTask;
 	private ListView 		mGroupsListView; //list of user's groups
-	private ArrayAdapter	mGroupsListViewAdapter; //list of user's groups
+	private GroupsListAdapter	mGroupsListViewAdapter; //list of user's groups
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +74,7 @@ public class ShowUserActivity extends Activity implements GetUserDataTaskActivit
 	public void onGetUserDataTaskComplete(User u) {
 		
 		this.populateMoreView(u);
-		this.mGroupsListViewAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, u.getGroupsList());
+		this.mGroupsListViewAdapter = new GroupsListAdapter(this, android.R.layout.simple_list_item_1, u.getGroupsList());
 		this.mGroupsListView.setAdapter(this.mGroupsListViewAdapter);
 		this.mGroupsListView.invalidate();
 		

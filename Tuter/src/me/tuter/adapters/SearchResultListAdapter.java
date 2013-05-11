@@ -8,7 +8,6 @@ import me.tutor.datastructures.User;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -42,7 +41,5 @@ public class SearchResultListAdapter extends BasicListAdapter<User> {
 		text2.setText(curr.getEmail());
 		
 		return view;
-		
-		
 	}
 }
