@@ -13,7 +13,9 @@ public class Tutor {
 	public final String PHOTO = "photo";
 	public final String RATE = "rate";
 	public final String EMAIL_KEY = "email";
+	public final String ID = "id";
 	
+	private String id;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -26,15 +28,12 @@ public class Tutor {
 		this.lastName = js.getString(LASTNAME_KEY);
 		this.email = js.getString(EMAIL_KEY);
 	}
+	
+	//Alternate constructor for taking in String JSON
 	public Tutor(String jsonString) throws JSONException
 	{
 		
-		this.jsonString = jsonString;
-		
-		JSONObject js = new JSONObject(jsonString);
-		this.firstName = js.getString(FIRSTNAME_KEY);
-		this.lastName = js.getString(LASTNAME_KEY);
-		this.email = js.getString(EMAIL_KEY);
+		this(new JSONObject(jsonString));
 	}
 	
 	public String getJSONString()
