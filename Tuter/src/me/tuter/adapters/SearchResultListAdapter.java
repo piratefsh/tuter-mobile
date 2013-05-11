@@ -13,41 +13,19 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
-public class SearchResultListAdapter extends ArrayAdapter<User> {
+public class SearchResultListAdapter extends BasicListAdapter<User> {
 	public static final String TAG ="SearchResultListAdapter";
 	
-	private Context mContext;
 	private int mCustomRowLayoutId;
-	private List<User> mTutors;
 	
 	HashMap<User, Integer> mIdMap = new HashMap<User, Integer>();
 
 	public SearchResultListAdapter(Context context, int textViewResourceId, int customRowLayoutId, List<User> results) {
 		super(context, textViewResourceId, results);
 		
-		this.mContext = context;
 		this.mCustomRowLayoutId = customRowLayoutId;
-		this.mTutors = results;
-		
-		for (int i = 0; i < results.size(); ++i) 
-		{
-			mIdMap.put(results.get(i), i);
-			//Log.d(TAG, "Put: " + results.get(i));
-		}
 	}
 
-	@Override
-	public long getItemId(int position)
-	{
-		User item = getItem(position);
-		return mIdMap.get(item);
-	}
-	
-	@Override
-	public boolean hasStableIds()
-	{
-		return true;
-	}
 
 	/**
 	 * Set up custom ListRow view. Based of deprecated TwoListItemView

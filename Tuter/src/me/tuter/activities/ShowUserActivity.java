@@ -10,21 +10,26 @@ import org.json.JSONException;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class ShowUserActivity extends Activity implements GetUserDataTaskActivity {
 	public static final String TAG = "ShowUserActivity";
 	
-	private Intent mIntent;
+	private Intent 			mIntent;
 	private GetUserDataTask mTask;
+	private ListView 		mGroupsListView; //list of user's groups
+	private ArrayAdapter	mGroupsListViewAdapter; //list of user's groups
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_user);
-		mIntent = getIntent();
+		this.mIntent = getIntent();
+		this.mGroupsListView = (ListView) findViewById(R.id.groups_list);
+		
 		
 		User tutor = null;
 		try {
@@ -55,7 +60,6 @@ public class ShowUserActivity extends Activity implements GetUserDataTaskActivit
 		TextView details  = (TextView) findViewById(R.id.tutor_details);
 		String detailsText = getResources().getString(R.string.tutor_details);
 		detailsText = detailsText.replace("#{AGE}", u.getAge()).replace("#{YEAR}", u.getYear()).replace("#{RATE}", u.getRates());
-		Log.d(TAG, "" + u.getAge() + " " + u.getYear());
 		details.setText(detailsText);
 	}
 
@@ -70,6 +74,10 @@ public class ShowUserActivity extends Activity implements GetUserDataTaskActivit
 	public void onGetUserDataTaskComplete(User u) {
 		
 		this.populateMoreView(u);
+		this.mGroupsListViewAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, u.getGroupsList());
+		this.mGroupsListView.setAdapter(this.mGroupsListViewAdapter);
+		this.mGroupsListView.invalidate();
+		
 	}
 
 }

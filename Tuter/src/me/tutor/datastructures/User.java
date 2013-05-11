@@ -1,5 +1,8 @@
 package me.tutor.datastructures;
 
+import java.util.ArrayList;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -15,6 +18,7 @@ public class User {
 	public final String EMAIL_KEY 		= "email";
 	public final String ID 				= "id";
 	public final String YEAR 			= "year";
+	public final String GROUPS 			= "groups";
 	
 	private String id;
 	private String firstName;
@@ -24,6 +28,7 @@ public class User {
 	private String age;
 	private String rate;
 	private String jsonString;
+	private ArrayList<Group> groups;
 	
 	public User(JSONObject js) throws JSONException
 	{
@@ -35,6 +40,20 @@ public class User {
 		this.id 		= js.getString(ID);
 		this.year 		= js.getString(YEAR);
 		this.age 		= js.getString(AGE);
+		
+		this.groups = new ArrayList<Group>();
+		
+		//Only get groups if they exist for user
+		if(!js.has(GROUPS)) return;
+		
+		JSONArray groupsJSON = js.getJSONArray(GROUPS);
+		
+		
+		for (int i = 0; i < groupsJSON.length(); i++) {
+			Group g = new Group(groupsJSON.getJSONObject(i));
+			
+			groups.add(g);
+		}
 	}
 	
 	//Alternate constructor for taking in String JSON
@@ -56,4 +75,5 @@ public class User {
 	public String getYear(){ return this.year;}
 	public String getRates(){ return this.rate;}
 	public String getId(){ return this.id;}
+	public ArrayList<Group> getGroupsList() {return this.groups;}
 }
