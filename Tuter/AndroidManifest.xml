@@ -68,6 +68,11 @@
             android:name="me.tuter.activities.ShowUserActivity"
             android:label="@string/title_activity_show_user" >
         </activity>
+        <activity
+            android:name="me.tuter.activities.RegisterActivity"
+            android:label="@string/title_activity_register"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+        </activity>
     </application>
 
 </manifest>

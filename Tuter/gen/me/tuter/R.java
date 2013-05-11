@@ -200,13 +200,14 @@ containing a value of this type.
         public static final int activity_search=0x7f090001;
         public static final int activity_welcome=0x7f090002;
         public static final int google_map_v2=0x7f090003;
-        public static final int search_result_list_adapter=0x7f090004;
-        public static final int search_results=0x7f090005;
-        public static final int show_user=0x7f090006;
-        public static final int sign_up=0x7f090007;
+        public static final int register=0x7f090004;
+        public static final int search_result_list_adapter=0x7f090005;
+        public static final int search_results=0x7f090006;
+        public static final int show_user=0x7f090007;
+        public static final int sign_up=0x7f090008;
     }
     public static final class string {
-        public static final int Tuter=0x7f05003a;
+        public static final int Tuter=0x7f05003c;
         public static final int action_forgot_password=0x7f05002c;
         public static final int action_settings=0x7f050023;
         public static final int action_sign_in_register=0x7f050029;
@@ -282,11 +283,13 @@ containing a value of this type.
         public static final int hello_world=0x7f050014;
         public static final int loading=0x7f050037;
         public static final int login_progress_signing_in=0x7f05002d;
+        public static final int login_progress_signing_up=0x7f050038;
         /**  Dummy Text 
          */
         public static final int lorem_ipsum=0x7f050035;
         public static final int menu_settings=0x7f050015;
         /**  LogInActivity and SignUpActivity Strings 
+ Strings related to login 
          */
         public static final int prompt_email=0x7f050026;
         public static final int prompt_password=0x7f050028;
@@ -305,13 +308,14 @@ containing a value of this type.
         public static final int signup_checkbox_tutor=0x7f050033;
         public static final int signup_im_a=0x7f050034;
         public static final int title_activity_google_map_v2=0x7f050025;
-        public static final int title_activity_login=0x7f050038;
+        public static final int title_activity_login=0x7f050039;
+        public static final int title_activity_register=0x7f05003a;
         public static final int title_activity_search=0x7f050022;
         /**  SearchResultsActivity Strings 
          */
         public static final int title_activity_search_results=0x7f050024;
         public static final int title_activity_show_user=0x7f050036;
-        public static final int title_activity_sign_up=0x7f050039;
+        public static final int title_activity_sign_up=0x7f05003b;
         public static final int tuter_catchphrase=0x7f050012;
         public static final int tuter_version=0x7f050013;
         public static final int welcome_logIn=0x7f050017;

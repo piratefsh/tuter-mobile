@@ -47,6 +47,7 @@
     <!-- Dummy Text -->
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
     <string name="title_activity_show_user">ShowUserActivity</string>
-    <string name="loading">Loading...</string>
+    <string name="loading">Loading...</string><string name="login_progress_signing_up" >Registering...</string>
+    
 
 </resources>
