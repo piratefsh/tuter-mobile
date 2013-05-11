@@ -26,6 +26,11 @@
 	        android:layout_height="wrap_content"
 	        android:text="@string/loading"
         android:id="@+id/email" />
+   	    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/loading"
+        	android:id="@+id/tutor_details" />
     
     </LinearLayout>
 </RelativeLayout>

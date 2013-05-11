@@ -20,7 +20,7 @@ import android.widget.ListView;
 public class SearchResultsActivity extends Activity implements GetSearchResultsTaskActivity{
 	private ListView 				mResultsListView;
 	private SearchResultListAdapter mAdapter;
-	private List<User> 			mResults;
+	private List<User> 				mResults;
 	private GetSearchResultsTask	mGetSearchResultsTask;
 	
 	public static final String TUTOR_JSON = "tutorJSON";

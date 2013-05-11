@@ -26,6 +26,9 @@
     <!-- SearchResultsActivity Strings -->
     <string name="title_activity_search_results">Search Results</string>
     <string name="title_activity_google_map_v2">GoogleMapV2</string>
+    
+    <!-- ShowUserActivity Strings -->
+    <string name="tutor_details">Age:\t#{AGE}\nYear:\t#{YEAR}\nRate:\t#{RATE}</string>
 
     <!-- LogInActivity and SignUpActivity Strings -->
     <string name="prompt_email">Email</string>
