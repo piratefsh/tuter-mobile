@@ -27,7 +27,7 @@ public class GroupsListAdapter extends BasicListAdapter<Group> {
 		TextView text2 = (TextView) view.findViewById(R.id.text2);
 		
 		Group curr = getItem(position);
-		text1.setText(curr.getName());
+		text1.setText(curr.getCourse().getCourseCode() + " - " + curr.getName());
 		text2.setText(curr.getDesc());
 		
 		return view;

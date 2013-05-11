@@ -49,7 +49,7 @@
 
     <!-- Dummy Text -->
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
-    <string name="title_activity_show_user">ShowUserActivity</string>
+    <string name="title_activity_show_user">User Profile</string>
     <string name="loading">Loading...</string>
 
 </resources>
