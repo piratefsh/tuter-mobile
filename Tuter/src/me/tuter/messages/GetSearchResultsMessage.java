@@ -3,7 +3,7 @@ package me.tuter.messages;
 import java.util.ArrayList;
 import java.util.List;
 
-import me.tutor.datastructures.Tutor;
+import me.tutor.datastructures.User;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,16 +30,16 @@ public class GetSearchResultsMessage {
 		}
 	}
 	
-	public List<Tutor> extractTutors()
+	public List<User> extractTutors()
 	{
-		List<Tutor> tutors = new ArrayList<Tutor>();
+		List<User> tutors = new ArrayList<User>();
 		
 		for(int i = 0; i < this.mResults.length(); i++)
 		{
 			JSONObject curr;
 			try {
 				curr = (JSONObject) this.mResults.get(i);
-				tutors.add(new Tutor(curr));
+				tutors.add(new User(curr));
 			} catch (JSONException e) {
 				Log.d(TAG, "Bad JSON");
 			}

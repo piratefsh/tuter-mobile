@@ -1,7 +1,7 @@
 package me.tuter.activities;
 
 import me.tuter.R;
-import me.tutor.datastructures.Tutor;
+import me.tutor.datastructures.User;
 
 import org.json.JSONException;
 
@@ -19,9 +19,9 @@ public class ShowUserActivity extends Activity {
 		setContentView(R.layout.activity_show_user);
 		mIntent = getIntent();
 		
-		Tutor tutor = null;
+		User tutor = null;
 		try {
-			tutor = new Tutor(mIntent.getExtras().getString(SearchResultsActivity.TUTOR_JSON));
+			tutor = new User(mIntent.getExtras().getString(SearchResultsActivity.TUTOR_JSON));
 		} catch (JSONException e) {
 			
 			e.printStackTrace();
@@ -30,7 +30,7 @@ public class ShowUserActivity extends Activity {
 		this.populateView(tutor);
 	}
 	
-	private void populateView(Tutor t)
+	private void populateView(User t)
 	{
 		TextView fullNameView = (TextView) findViewById(R.id.full_name);
 		fullNameView.setText(t.getFullName());

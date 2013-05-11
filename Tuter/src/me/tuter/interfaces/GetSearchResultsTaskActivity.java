@@ -2,8 +2,8 @@ package me.tuter.interfaces;
 
 import java.util.List;
 
-import me.tutor.datastructures.Tutor;
+import me.tutor.datastructures.User;
 
 public interface GetSearchResultsTaskActivity {
-	void onGetSearchResultsTaskComplete(List<Tutor> tutors);
+	void onGetSearchResultsTaskComplete(List<User> tutors);
 }

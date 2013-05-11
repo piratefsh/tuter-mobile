@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import me.tuter.R;
-import me.tutor.datastructures.Tutor;
+import me.tutor.datastructures.User;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,16 +13,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
-public class SearchResultListAdapter extends ArrayAdapter<Tutor> {
+public class SearchResultListAdapter extends ArrayAdapter<User> {
 	public static final String TAG ="SearchResultListAdapter";
 	
 	private Context mContext;
 	private int mCustomRowLayoutId;
-	private List<Tutor> mTutors;
+	private List<User> mTutors;
 	
-	HashMap<Tutor, Integer> mIdMap = new HashMap<Tutor, Integer>();
+	HashMap<User, Integer> mIdMap = new HashMap<User, Integer>();
 
-	public SearchResultListAdapter(Context context, int textViewResourceId, int customRowLayoutId, List<Tutor> results) {
+	public SearchResultListAdapter(Context context, int textViewResourceId, int customRowLayoutId, List<User> results) {
 		super(context, textViewResourceId, results);
 		
 		this.mContext = context;
@@ -39,7 +39,7 @@ public class SearchResultListAdapter extends ArrayAdapter<Tutor> {
 	@Override
 	public long getItemId(int position)
 	{
-		Tutor item = getItem(position);
+		User item = getItem(position);
 		return mIdMap.get(item);
 	}
 	
@@ -59,7 +59,7 @@ public class SearchResultListAdapter extends ArrayAdapter<Tutor> {
 		TextView text1 = (TextView) view.findViewById(R.id.text1);
 		TextView text2 = (TextView) view.findViewById(R.id.text2);
 		
-		Tutor curr = getItem(position);
+		User curr = getItem(position);
 		text1.setText(curr.getFullName());
 		text2.setText(curr.getEmail());
 		
