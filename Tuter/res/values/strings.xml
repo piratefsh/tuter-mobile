@@ -29,6 +29,7 @@
     
     <!-- ShowUserActivity Strings -->
     <string name="tutor_details">Age:\t#{AGE}\nYear:\t#{YEAR}\nRate:\t#{RATE}</string>
+    <string name="show_user_groups">Tutoring Groups</string>
 
     <!-- LogInActivity and SignUpActivity Strings -->
     <string name="prompt_email">Email</string>

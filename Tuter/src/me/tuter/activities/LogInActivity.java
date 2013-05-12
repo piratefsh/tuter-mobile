@@ -37,7 +37,7 @@ import android.widget.TextView;
  * well.
  */
 public class LogInActivity extends Activity {
-
+	public final static String TAG = "LogInActivity"; 
     /**
      * The default email to populate the email field with.
      */
@@ -262,6 +262,8 @@ public class LogInActivity extends Activity {
             		
             		Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
             		startActivity(intent);
+            		
+            		Log.d(TAG, "Successful Login");
             		finish();
             	}
             	throw new Exception("Here's the exception");
