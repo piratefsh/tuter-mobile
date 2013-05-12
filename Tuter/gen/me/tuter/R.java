@@ -1167,9 +1167,11 @@ containing a value of this type.
         public static final int activity_show_user=0x7f03001a;
         public static final int activity_sign_up=0x7f03001b;
         public static final int activity_welcome=0x7f03001c;
-        public static final int list_single_result=0x7f03001d;
-        public static final int sherlock_spinner_dropdown_item=0x7f03001e;
-        public static final int sherlock_spinner_item=0x7f03001f;
+        public static final int fragment_search_results_list=0x7f03001d;
+        public static final int fragment_search_results_map=0x7f03001e;
+        public static final int list_single_result=0x7f03001f;
+        public static final int sherlock_spinner_dropdown_item=0x7f030020;
+        public static final int sherlock_spinner_item=0x7f030021;
     }
     public static final class menu {
         public static final int activity_main=0x7f0b0000;

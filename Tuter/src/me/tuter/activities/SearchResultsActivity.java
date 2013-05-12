@@ -2,11 +2,9 @@ package me.tuter.activities;
 
 import java.util.List;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.ActionBar.Tab;
-
 import me.tuter.R;
 import me.tuter.adapters.SearchResultListAdapter;
+import me.tuter.fragments.SearchResultsListFragment;
 import me.tuter.fragments.SearchResultsMapFragment;
 import me.tuter.fragments.TuterTabListener;
 import me.tuter.interfaces.GetSearchResultsTaskActivity;
@@ -20,6 +18,9 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
+
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.ActionBar.Tab;
 
 
 public class SearchResultsActivity extends BasicFragmentActivity implements GetSearchResultsTaskActivity{
@@ -51,14 +52,14 @@ public class SearchResultsActivity extends BasicFragmentActivity implements GetS
         ActionBar actionbar = getSupportActionBar();
         actionbar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
   
-        Tab tab1 = actionbar.newTab().setText("Greeting 1");
-        Tab tab2 = actionbar.newTab().setText("Greeting 2");
+        Tab tab1 = actionbar.newTab().setText("Map");
+        Tab tab2 = actionbar.newTab().setText("List");
         
-        tab1.setTabListener(new TuterTabListener<SearchResultsMapFragment>(this, "tab1",
+        tab1.setTabListener(new TuterTabListener<SearchResultsMapFragment>(this, "map",
         		SearchResultsMapFragment.class));
   
-        tab2.setTabListener(new TuterTabListener<SearchResultsMapFragment>(this, "tab1",
-                SearchResultsMapFragment.class));
+        tab2.setTabListener(new TuterTabListener<SearchResultsListFragment>(this, "list",
+                SearchResultsListFragment.class));
   
         actionbar.addTab(tab1);
         actionbar.addTab(tab2);
