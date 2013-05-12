@@ -33,6 +33,11 @@ public class GetGroupDataTask extends AsyncTask<Void, Void, GetGroupDataMessage>
 	@Override
 	protected void onPostExecute(GetGroupDataMessage m)
 	{
+		if(m == null || this.isCancelled())
+		{
+			this.mActivity.onTaskFail();
+			return;
+		}
 		try {
 			mActivity.onGetGroupDataTaskComplete(m.extractGroup());
 		} catch (JSONException e) {
@@ -40,10 +45,23 @@ public class GetGroupDataTask extends AsyncTask<Void, Void, GetGroupDataMessage>
 		}
 	}
 	
+	@Override
+	protected void onCancelled()
+	{
+		this.mActivity.onTaskFail();
+	}
+	
 	public GetGroupDataMessage requestWebService(String serviceURL)
 	{
 		BasicHTTPConnection httpConn = new BasicHTTPConnection(serviceURL);
 		InputStream in = httpConn.openHTTPConnection();
+		
+		if(in == null)
+		{
+			this.cancel(true);
+			return null;
+		}
+		
 		String rawJSON = getResponseText(in);
 		httpConn.closeHTTPConnection();
 		return new GetGroupDataMessage(rawJSON);

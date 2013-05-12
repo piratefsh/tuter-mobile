@@ -7,7 +7,6 @@ import me.tuter.adapters.SearchResultListAdapter;
 import me.tuter.interfaces.GetSearchResultsTaskActivity;
 import me.tuter.tasks.GetSearchResultsTask;
 import me.tutor.datastructures.User;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -33,7 +32,7 @@ public class SearchResultsActivity extends BasicShowActivity implements GetSearc
         
         initViews();
         
-        this.mGetSearchResultsTask = new GetSearchResultsTask(this, this);
+        this.mGetSearchResultsTask = new GetSearchResultsTask(this, this.getApplicationContext());
         this.mGetSearchResultsTask.execute();
     }
 
@@ -73,10 +72,5 @@ public class SearchResultsActivity extends BasicShowActivity implements GetSearc
     	this.mResultsListView.setAdapter(mAdapter);
 	}
 
-	@Override
-	public void onTaskFail() {
-		// TODO Auto-generated method stub
-		
-	}
     
 }

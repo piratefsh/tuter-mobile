@@ -1,12 +1,11 @@
 package me.tuter.activities;
 
 import me.tuter.R;
-import me.tuter.R.layout;
-import me.tuter.R.menu;
 import me.tuter.interfaces.BasicAsyncTaskActivity;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.widget.Toast;
 
 public class BasicShowActivity extends Activity implements BasicAsyncTaskActivity {
 
@@ -25,10 +24,8 @@ public class BasicShowActivity extends Activity implements BasicAsyncTaskActivit
 
 	@Override
 	public void onTaskFail() {
-		// TODO Toast failure
-		
+		//display toast
+		Toast t = Toast.makeText(this.getApplicationContext(), getResources().getString(R.string.network_err_msg), Toast.LENGTH_LONG);
+		t.show();
 	}
-	
-	
-
 }

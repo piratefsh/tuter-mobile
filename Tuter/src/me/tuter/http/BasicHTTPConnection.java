@@ -38,6 +38,8 @@ public class BasicHTTPConnection {
 	
 	private void setUpConnection() throws IOException
 	{
+		this.inputStream = null;
+		
 		URL urlToRequest 	= new URL(serviceURL);
 		urlConn				= (HttpURLConnection) urlToRequest.openConnection();
 		urlConn.setConnectTimeout(TuterConstants.CONN_TIMEOUT);
@@ -63,11 +65,12 @@ public class BasicHTTPConnection {
 		catch (SocketTimeoutException e)
 		{
 			Log.d(TAG, "Connection timeout");
-			e.printStackTrace();
+			return null;
 		}
 		catch (IOException e) 
 		{
-			e.printStackTrace();
+			Log.d(TAG, "Connection error");
+			return null;
 		}		
 		return inputStream;
 	}
