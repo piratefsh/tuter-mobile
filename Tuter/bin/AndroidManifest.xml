@@ -68,6 +68,14 @@
             android:name="me.tuter.activities.ShowUserActivity"
             android:label="@string/title_activity_show_user" >
         </activity>
+        <activity
+            android:name="me.tuter.activities.ViewOrganizationsActivity"
+            android:label="@string/title_activity_view_organizations" >
+        </activity>
+        <activity
+            android:name="me.tuter.activities.ShowOrganizationActivity"
+            android:label="@string/title_activity_show_organization" >
+        </activity>
     </application>
 
 </manifest>

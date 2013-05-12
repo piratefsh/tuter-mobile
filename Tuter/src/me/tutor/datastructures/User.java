@@ -40,7 +40,6 @@ public class User {
 	//Alternate constructor for taking in String JSON
 	public User(String jsonString) throws JSONException
 	{
-		
 		this(new JSONObject(jsonString));
 	}
 	

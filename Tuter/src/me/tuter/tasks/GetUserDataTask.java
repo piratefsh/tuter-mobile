@@ -8,13 +8,13 @@ import org.json.JSONException;
 import me.tuter.TuterConstants;
 import me.tuter.http.BasicHTTPConnection;
 import me.tuter.interfaces.GetUserDataTaskActivity;
-import me.tuter.messages.GetSearchResultsMessage;
 import me.tuter.messages.GetUserDataMessage;
 import me.tutor.datastructures.User;
 import android.content.Context;
 import android.os.AsyncTask;
 
-public class GetUserDataTask extends AsyncTask<Void, Void, GetUserDataMessage> {
+public class GetUserDataTask extends AsyncTask<Void, Void, GetUserDataMessage>
+{
 	private GetUserDataTaskActivity mActivity;
 	private Context mContext;
 	private User mUser;
