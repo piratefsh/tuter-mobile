@@ -11,14 +11,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.ListView;
 
 public class SearchResultsActivity extends BasicShowActivity implements GetSearchResultsTaskActivity{
 	private ListView 				mResultsListView;
 	private SearchResultListAdapter mAdapter;
 	private List<User> 				mResults;
+	private Button					mRefreshButton;
 	private GetSearchResultsTask	mGetSearchResultsTask;
 	
 	public static final String USER_JSON = "tutorJSON";
@@ -53,6 +56,19 @@ public class SearchResultsActivity extends BasicShowActivity implements GetSearc
 				mIntent.putExtras(mBundle);
 				
 				SearchResultsActivity.this.startActivity(mIntent);
+			}
+    		
+    	});
+    	
+    	this.mRefreshButton = (Button) findViewById(R.id.button_refresh);
+    	this.mRefreshButton.setOnClickListener(new OnClickListener()
+    	{
+
+			public void onClick(View v) {
+				SearchResultsActivity.this.mGetSearchResultsTask 
+					= new GetSearchResultsTask(SearchResultsActivity.this, SearchResultsActivity.this.getApplicationContext());
+			
+				SearchResultsActivity.this.mGetSearchResultsTask.execute();
 			}
     		
     	});
