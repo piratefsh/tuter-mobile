@@ -2,14 +2,18 @@ package me.tuter.activities;
 
 import java.util.List;
 
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.ActionBar.Tab;
+
 import me.tuter.R;
 import me.tuter.adapters.SearchResultListAdapter;
+import me.tuter.fragments.SearchResultsMapFragment;
+import me.tuter.fragments.TuterTabListener;
 import me.tuter.interfaces.GetSearchResultsTaskActivity;
 import me.tuter.tasks.GetSearchResultsTask;
 import me.tutor.datastructures.User;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -17,7 +21,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 
-public class SearchResultsActivity extends BasicShowActivity implements GetSearchResultsTaskActivity{
+
+public class SearchResultsActivity extends BasicFragmentActivity implements GetSearchResultsTaskActivity{
 	private ListView 				mResultsListView;
 	private SearchResultListAdapter mAdapter;
 	private List<User> 				mResults;
@@ -34,11 +39,30 @@ public class SearchResultsActivity extends BasicShowActivity implements GetSearc
         setContentView(R.layout.activity_search_results);
         
         initViews();
+        initTabs();
         
         this.mGetSearchResultsTask = new GetSearchResultsTask(this, this.getApplicationContext());
         this.mGetSearchResultsTask.execute();
     }
 
+    private void initTabs()
+    {
+        
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+  
+        Tab tab1 = actionbar.newTab().setText("Greeting 1");
+        Tab tab2 = actionbar.newTab().setText("Greeting 2");
+        
+        tab1.setTabListener(new TuterTabListener<SearchResultsMapFragment>(this, "tab1",
+        		SearchResultsMapFragment.class));
+  
+        tab2.setTabListener(new TuterTabListener<SearchResultsMapFragment>(this, "tab1",
+                SearchResultsMapFragment.class));
+  
+        actionbar.addTab(tab1);
+        actionbar.addTab(tab2);
+    }
     private void initViews()
     {
     	//Convert array to ArrayList
@@ -74,19 +98,10 @@ public class SearchResultsActivity extends BasicShowActivity implements GetSearc
     	});
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.search_results, menu);
-        return true;
-    }
-
 	@Override
 	public void onGetSearchResultsTaskComplete(List<User> tutors) {
 		this.mResults = tutors;
 		this.mAdapter = new SearchResultListAdapter(this, android.R.layout.simple_list_item_1, R.layout.list_single_result, this.mResults);
     	this.mResultsListView.setAdapter(mAdapter);
 	}
-
-    
 }

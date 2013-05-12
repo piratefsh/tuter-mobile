@@ -1,16 +1,15 @@
 package me.tuter.activities;
 
 import me.tuter.R;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
 
-
-public class SearchActivity extends FragmentActivity {
+public class SearchActivity extends SherlockFragmentActivity {
 	public final static String TAG = "SearchActivity";
 	
 	private Button mSearchButton;
@@ -21,6 +20,7 @@ public class SearchActivity extends FragmentActivity {
         setContentView(R.layout.activity_search);
         
         initViews();
+
     }
     
     private void initViews()
@@ -35,12 +35,4 @@ public class SearchActivity extends FragmentActivity {
 			}
 		});
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.activity_search, menu);
-        return true;
-    }
-    
 }
