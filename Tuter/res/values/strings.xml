@@ -56,6 +56,6 @@
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
     <string name="title_activity_show_user">User Profile</string>
     <string name="loading">Loading&#8230;</string>
-    <string name="title_activity_show_group">ShowGroupActivity</string>
+    <string name="title_activity_show_group">Group Profile</string>
 
 </resources>

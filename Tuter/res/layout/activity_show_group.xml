@@ -35,18 +35,18 @@
 	        android:id="@+id/group_desc"
 	        style="@style/grey_text"/>
         
-        <TextView
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/show_group_students_header"
-	        style="@style/h2_text"/>
         
         <TextView
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:text="@string/show_group_tutors_header"
-	        style="@style/h2_text"/>
+	        style="@style/subheader"/>
         
+        <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/show_group_students_header"
+	        style="@style/subheader"/>
         
     </LinearLayout>
 

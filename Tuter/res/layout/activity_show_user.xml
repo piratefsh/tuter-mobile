@@ -35,7 +35,7 @@
 	        android:layout_height="wrap_content"
 	        android:text="@string/show_user_groups"
         	android:id="@+id/groups_header"
-        	style="@style/h2_text" />
+        	style="@style/subheader" />
     
 	    <ListView
 	        android:id="@+id/groups_list"

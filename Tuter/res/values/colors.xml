@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="white">#ffffff</color>
+    <color name="light_grey">#cccccc</color>
     <color name="grey">#666666</color>
     <color name="dark_grey">#333333</color>
     <color name="tuter_grey">#3E454C</color>
