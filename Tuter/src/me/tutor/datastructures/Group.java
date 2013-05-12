@@ -20,6 +20,11 @@ public class Group {
 		this.course = new Course(js.getJSONObject(COURSE));
 		this.json 	= js;
 	}
+	public Group(String rawJSON) throws JSONException
+	{
+		this(new JSONObject(rawJSON));
+		
+	}
 	
 	public String getName() { return this.name;}
 	public String getDesc() { return this.desc;}
