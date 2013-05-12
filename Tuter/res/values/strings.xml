@@ -30,7 +30,7 @@
     <!-- ShowUserActivity Strings -->
     <string name="tutor_details">Age:\t#{AGE}\nYear:\t#{YEAR}\nRate:\t#{RATE}</string>
     <string name="show_user_groups">Tutoring Groups</string>
-    
+
     <!-- ShowGroupActivity String -->
     <string name="show_group_tutors_header">Tutors</string>
     <string name="show_group_students_header">Students</string>
@@ -57,5 +57,6 @@
     <string name="title_activity_show_user">User Profile</string>
     <string name="loading">Loading&#8230;</string>
     <string name="title_activity_show_group">Group Profile</string>
+    <string name="title_activity_basic_show">BasicShowActivity</string>
 
 </resources>

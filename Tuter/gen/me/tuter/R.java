@@ -198,29 +198,31 @@ containing a value of this type.
         public static final int welcome_signUpButton=0x7f040021;
     }
     public static final class layout {
-        public static final int activity_login=0x7f030000;
-        public static final int activity_search=0x7f030001;
-        public static final int activity_search_results=0x7f030002;
-        public static final int activity_show_group=0x7f030003;
-        public static final int activity_show_user=0x7f030004;
-        public static final int activity_sign_up=0x7f030005;
-        public static final int activity_welcome=0x7f030006;
-        public static final int list_single_result=0x7f030007;
+        public static final int activity_basic_show=0x7f030000;
+        public static final int activity_login=0x7f030001;
+        public static final int activity_search=0x7f030002;
+        public static final int activity_search_results=0x7f030003;
+        public static final int activity_show_group=0x7f030004;
+        public static final int activity_show_user=0x7f030005;
+        public static final int activity_sign_up=0x7f030006;
+        public static final int activity_welcome=0x7f030007;
+        public static final int list_single_result=0x7f030008;
     }
     public static final class menu {
         public static final int activity_main=0x7f090000;
         public static final int activity_search=0x7f090001;
         public static final int activity_welcome=0x7f090002;
-        public static final int google_map_v2=0x7f090003;
-        public static final int register=0x7f090004;
-        public static final int search_result_list_adapter=0x7f090005;
-        public static final int search_results=0x7f090006;
-        public static final int show_group=0x7f090007;
-        public static final int show_user=0x7f090008;
-        public static final int sign_up=0x7f090009;
+        public static final int basic_show=0x7f090003;
+        public static final int google_map_v2=0x7f090004;
+        public static final int register=0x7f090005;
+        public static final int search_result_list_adapter=0x7f090006;
+        public static final int search_results=0x7f090007;
+        public static final int show_group=0x7f090008;
+        public static final int show_user=0x7f090009;
+        public static final int sign_up=0x7f09000a;
     }
     public static final class string {
-        public static final int Tuter=0x7f050040;
+        public static final int Tuter=0x7f050041;
         public static final int action_forgot_password=0x7f050030;
         public static final int action_settings=0x7f050023;
         public static final int action_sign_in_register=0x7f05002d;
@@ -324,16 +326,17 @@ containing a value of this type.
         public static final int signup_checkbox_student=0x7f050036;
         public static final int signup_checkbox_tutor=0x7f050037;
         public static final int signup_im_a=0x7f050038;
+        public static final int title_activity_basic_show=0x7f05003d;
         public static final int title_activity_google_map_v2=0x7f050025;
-        public static final int title_activity_login=0x7f05003d;
-        public static final int title_activity_register=0x7f05003e;
+        public static final int title_activity_login=0x7f05003e;
+        public static final int title_activity_register=0x7f05003f;
         public static final int title_activity_search=0x7f050022;
         /**  SearchResultsActivity Strings 
          */
         public static final int title_activity_search_results=0x7f050024;
         public static final int title_activity_show_group=0x7f05003c;
         public static final int title_activity_show_user=0x7f05003a;
-        public static final int title_activity_sign_up=0x7f05003f;
+        public static final int title_activity_sign_up=0x7f050040;
         public static final int tuter_catchphrase=0x7f050012;
         public static final int tuter_version=0x7f050013;
         /**  ShowUserActivity Strings 

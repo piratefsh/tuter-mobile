@@ -20,7 +20,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class ShowGroupActivity extends Activity implements GetGroupDataTaskActivity {
+public class ShowGroupActivity extends BasicShowActivity implements GetGroupDataTaskActivity {
 	private Group mGroup;
 	private ListView mStudentsList;
 	private ListView mTutorsList;

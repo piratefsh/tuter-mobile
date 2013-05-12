@@ -18,7 +18,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class ShowUserActivity extends Activity implements GetUserDataTaskActivity {
+public class ShowUserActivity extends BasicShowActivity implements GetUserDataTaskActivity {
 	public static final String TAG = "ShowUserActivity";
 	public static final String GROUP = "group";
 	private Intent 			mIntent;

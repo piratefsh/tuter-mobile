@@ -77,6 +77,10 @@
             android:name="me.tuter.activities.ShowGroupActivity"
             android:label="@string/title_activity_show_group" >
         </activity>
+        <activity
+            android:name="me.tuter.activities.BasicShowActivity"
+            android:label="@string/title_activity_basic_show" >
+        </activity>
     </application>
 
 </manifest>

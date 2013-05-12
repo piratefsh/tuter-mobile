@@ -16,7 +16,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-public class SearchResultsActivity extends Activity implements GetSearchResultsTaskActivity{
+public class SearchResultsActivity extends BasicShowActivity implements GetSearchResultsTaskActivity{
 	private ListView 				mResultsListView;
 	private SearchResultListAdapter mAdapter;
 	private List<User> 				mResults;
@@ -71,6 +71,12 @@ public class SearchResultsActivity extends Activity implements GetSearchResultsT
 		this.mResults = tutors;
 		this.mAdapter = new SearchResultListAdapter(this, android.R.layout.simple_list_item_1, R.layout.list_single_result, this.mResults);
     	this.mResultsListView.setAdapter(mAdapter);
+	}
+
+	@Override
+	public void onTaskFail() {
+		// TODO Auto-generated method stub
+		
 	}
     
 }
