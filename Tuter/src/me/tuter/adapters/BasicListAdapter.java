@@ -30,7 +30,7 @@ public class BasicListAdapter<T> extends ArrayAdapter<T> {
 		T item = getItem(position);
 		return mIdMap.get(item);
 	}
-	
+
 	@Override
 	public boolean hasStableIds()
 	{

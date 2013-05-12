@@ -22,7 +22,7 @@ public class SearchResultsActivity extends Activity implements GetSearchResultsT
 	private List<User> 				mResults;
 	private GetSearchResultsTask	mGetSearchResultsTask;
 	
-	public static final String TUTOR_JSON = "tutorJSON";
+	public static final String USER_JSON = "tutorJSON";
 	public static final String TAG = "SearchResultsActivity";
 	
 	String[] values = new String[] { "Loading" };
@@ -50,7 +50,7 @@ public class SearchResultsActivity extends Activity implements GetSearchResultsT
 				Intent mIntent = new Intent(SearchResultsActivity.this, ShowUserActivity.class);
 				Bundle mBundle = new Bundle();
 				User t = (User) SearchResultsActivity.this.mResultsListView.getAdapter().getItem(position);
-				mBundle.putString(SearchResultsActivity.TUTOR_JSON, t.getJSONString());
+				mBundle.putString(SearchResultsActivity.USER_JSON, t.getJSONString());
 				mIntent.putExtras(mBundle);
 				
 				SearchResultsActivity.this.startActivity(mIntent);

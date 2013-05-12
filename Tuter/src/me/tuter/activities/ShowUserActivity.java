@@ -51,7 +51,7 @@ public class ShowUserActivity extends Activity implements GetUserDataTaskActivit
 		
 		User tutor = null;
 		try {
-			tutor = new User(mIntent.getExtras().getString(SearchResultsActivity.TUTOR_JSON));
+			tutor = new User(mIntent.getExtras().getString(SearchResultsActivity.USER_JSON));
 		} catch (JSONException e) {
 			
 			e.printStackTrace();
