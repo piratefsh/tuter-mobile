@@ -16,6 +16,8 @@ public class SearchResultsMapFragment extends SupportMapFragment {
 		initMap();
 		return v;
 	}
+	
 	private void initMap(){
+		//TODO: initialize map with user position
 	}
 }
