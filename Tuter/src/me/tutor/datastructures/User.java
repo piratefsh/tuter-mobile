@@ -48,10 +48,9 @@ public class User {
 		
 		JSONArray groupsJSON = js.getJSONArray(GROUPS);
 		
-		
-		for (int i = 0; i < groupsJSON.length(); i++) {
+		for (int i = 0; i < groupsJSON.length(); i++) 
+		{
 			Group g = new Group(groupsJSON.getJSONObject(i));
-			
 			groups.add(g);
 		}
 	}

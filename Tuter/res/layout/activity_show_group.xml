@@ -41,13 +41,22 @@
 	        android:layout_height="wrap_content"
 	        android:text="@string/show_group_tutors_header"
 	        style="@style/subheader"/>
+        <ListView
+            android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:id="@+id/tutors_list">
+        </ListView>
         
         <TextView
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:text="@string/show_group_students_header"
 	        style="@style/subheader"/>
-        
+         <ListView
+            android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:id="@+id/students_list">
+        </ListView>
     </LinearLayout>
 
 </RelativeLayout>

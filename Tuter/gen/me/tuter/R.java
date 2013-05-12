@@ -129,11 +129,12 @@ containing a value of this type.
         public static final int zOrderOnTop=0x7f01000d;
     }
     public static final class color {
-        public static final int dark_grey=0x7f060002;
-        public static final int grey=0x7f060001;
-        public static final int tuter_blue=0x7f060004;
-        public static final int tuter_grey=0x7f060003;
-        public static final int tuter_lightblue=0x7f060005;
+        public static final int dark_grey=0x7f060003;
+        public static final int grey=0x7f060002;
+        public static final int light_grey=0x7f060001;
+        public static final int tuter_blue=0x7f060005;
+        public static final int tuter_grey=0x7f060004;
+        public static final int tuter_lightblue=0x7f060006;
         public static final int white=0x7f060000;
     }
     public static final class dimen {
@@ -147,51 +148,54 @@ containing a value of this type.
         public static final int activity_vertical_margin=0x7f070001;
     }
     public static final class drawable {
-        public static final int button=0x7f020000;
-        public static final int button_released=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int tuter_title=0x7f020003;
-        public static final int welcome_background=0x7f020004;
+        public static final int border_bottom=0x7f020000;
+        public static final int button=0x7f020001;
+        public static final int button_released=0x7f020002;
+        public static final int ic_launcher=0x7f020003;
+        public static final int tuter_title=0x7f020004;
+        public static final int welcome_background=0x7f020005;
     }
     public static final class id {
-        public static final int action_forgot_password=0x7f040025;
-        public static final int action_settings=0x7f040024;
-        public static final int checkBoxStudent=0x7f04001a;
-        public static final int checkBoxTutor=0x7f040019;
+        public static final int action_forgot_password=0x7f040027;
+        public static final int action_settings=0x7f040026;
+        public static final int checkBoxStudent=0x7f04001c;
+        public static final int checkBoxTutor=0x7f04001b;
         public static final int checkboxPaid=0x7f04000e;
         public static final int checkboxVolunteer=0x7f04000d;
         public static final int email=0x7f040008;
-        public static final int full_name=0x7f040014;
+        public static final int full_name=0x7f040016;
         public static final int group_course=0x7f040012;
         public static final int group_desc=0x7f040013;
         public static final int group_name=0x7f040011;
-        public static final int groups_header=0x7f040016;
-        public static final int groups_list=0x7f040017;
+        public static final int groups_header=0x7f040018;
+        public static final int groups_list=0x7f040019;
         public static final int hybrid=0x7f040004;
         public static final int login=0x7f04000a;
         public static final int login_form=0x7f040007;
         public static final int login_status=0x7f040005;
         public static final int login_status_message=0x7f040006;
         public static final int map=0x7f04000c;
-        public static final int menu_forgot_password=0x7f040022;
-        public static final int menu_settings=0x7f040023;
+        public static final int menu_forgot_password=0x7f040024;
+        public static final int menu_settings=0x7f040025;
         public static final int none=0x7f040000;
         public static final int normal=0x7f040001;
         public static final int password=0x7f040009;
-        public static final int reenter_password=0x7f040018;
+        public static final int reenter_password=0x7f04001a;
         public static final int results_list=0x7f040010;
         public static final int satellite=0x7f040002;
         public static final int search_searchButton=0x7f04000f;
         public static final int sign_in_button=0x7f04000b;
+        public static final int students_list=0x7f040015;
         public static final int terrain=0x7f040003;
-        public static final int text1=0x7f040020;
-        public static final int text2=0x7f040021;
-        public static final int tuter_logo=0x7f04001b;
-        public static final int tutor_details=0x7f040015;
-        public static final int welcome_buttons=0x7f04001c;
-        public static final int welcome_logInButton=0x7f04001e;
-        public static final int welcome_searchButton=0x7f04001d;
-        public static final int welcome_signUpButton=0x7f04001f;
+        public static final int text1=0x7f040022;
+        public static final int text2=0x7f040023;
+        public static final int tuter_logo=0x7f04001d;
+        public static final int tutor_details=0x7f040017;
+        public static final int tutors_list=0x7f040014;
+        public static final int welcome_buttons=0x7f04001e;
+        public static final int welcome_logInButton=0x7f040020;
+        public static final int welcome_searchButton=0x7f04001f;
+        public static final int welcome_signUpButton=0x7f040021;
     }
     public static final class layout {
         public static final int activity_login=0x7f030000;
@@ -368,12 +372,13 @@ containing a value of this type.
          */
         public static final int AppTheme=0x7f080001;
         public static final int LoginFormContainer=0x7f080002;
-        public static final int checkbox=0x7f080008;
-        public static final int grey_text=0x7f080007;
+        public static final int checkbox=0x7f080009;
+        public static final int grey_text=0x7f080008;
         public static final int h1_text=0x7f080003;
         public static final int h2_text=0x7f080004;
         public static final int h3_text=0x7f080005;
-        public static final int label_text=0x7f080006;
+        public static final int label_text=0x7f080007;
+        public static final int subheader=0x7f080006;
     }
     public static final class styleable {
         /** Attributes that can be used with a MapAttrs.
