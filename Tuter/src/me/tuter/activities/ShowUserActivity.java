@@ -12,12 +12,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class ShowUserActivity extends Activity implements GetUserDataTaskActivity {
 	public static final String TAG = "ShowUserActivity";
-	
+	public static final String GROUP = "group";
 	private Intent 			mIntent;
 	private GetUserDataTask mTask;
 	private ListView 		mGroupsListView; //list of user's groups
@@ -30,6 +33,21 @@ public class ShowUserActivity extends Activity implements GetUserDataTaskActivit
 		this.mIntent = getIntent();
 		this.mGroupsListView = (ListView) findViewById(R.id.groups_list);
 		
+		//Set on click listener
+		this.mGroupsListView.setOnItemClickListener(new OnItemClickListener(){
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
+					long arg3) {
+				Intent i = new Intent(ShowUserActivity.this, ShowGroupActivity.class);
+				Bundle extras = new Bundle();
+				
+				extras.putString(ShowUserActivity.GROUP, ShowUserActivity.this.mGroupsListViewAdapter.getItem(position).toString());
+				i.putExtras(extras);
+				
+				ShowUserActivity.this.startActivity(i);
+			}
+		});
 		
 		User tutor = null;
 		try {

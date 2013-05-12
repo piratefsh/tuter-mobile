@@ -73,6 +73,10 @@
             android:label="@string/title_activity_register"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
+        <activity
+            android:name="me.tuter.activities.ShowGroupActivity"
+            android:label="@string/title_activity_show_group" >
+        </activity>
     </application>
 
 </manifest>

@@ -7,6 +7,7 @@ public class Group {
 	private String name;
 	private String desc;
 	private Course course;
+	private JSONObject json;
 	
 	public static final String NAME 	= "name";
 	public static final String COURSE	= "course";
@@ -17,9 +18,11 @@ public class Group {
 		this.name 	= js.getString(NAME);
 		this.desc 	= js.getString(DESC);
 		this.course = new Course(js.getJSONObject(COURSE));
+		this.json 	= js;
 	}
 	
 	public String getName() { return this.name;}
 	public String getDesc() { return this.desc;}
 	public Course getCourse() { return this.course;}
+	public String toString(){ return this.json.toString();}
 }
