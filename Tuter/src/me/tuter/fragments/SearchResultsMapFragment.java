@@ -3,6 +3,7 @@ package me.tuter.fragments;
 import java.util.HashMap;
 import java.util.List;
 
+import me.tuter.activities.BasicFragmentActivity;
 import me.tuter.activities.SearchResultsActivity;
 import me.tuter.activities.ShowUserActivity;
 import me.tutor.datastructures.Location;
@@ -28,14 +29,14 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class SearchResultsMapFragment extends SupportMapFragment {
 	public final static String TAG = "SearchResultsMapFragment";
 	private GoogleMap mMap;
-	private SearchResultsActivity mActivity;
+	private BasicFragmentActivity mActivity;
 	private Marker mMyMarker;
 	private HashMap <Marker, User> mMarkerToUser;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
-		this.mActivity = (SearchResultsActivity) this.getActivity();
+		this.mActivity = (BasicFragmentActivity) this.getActivity();
 		this.mMarkerToUser = new HashMap<Marker, User>();
 		
 		View v = super.onCreateView(inflater,  container, savedInstanceState);

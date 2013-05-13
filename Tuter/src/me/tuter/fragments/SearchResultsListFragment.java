@@ -66,7 +66,6 @@ public class SearchResultsListFragment extends SherlockFragment {
     	this.mRefreshButton = (Button) this.mView.findViewById(R.id.button_refresh);
     	this.mRefreshButton.setOnClickListener(new OnClickListener()
     	{
-
 			public void onClick(View v) {
 				SearchResultsListFragment.this.mActivity.refreshResults();
 			}
