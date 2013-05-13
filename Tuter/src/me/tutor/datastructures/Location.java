@@ -20,4 +20,5 @@ public class Location {
 		this.address= js.getString(ADDRESS);
 		this.coords = new LatLng(js.getDouble(LAT), js.getDouble(LNG));
 	}
+	
 }

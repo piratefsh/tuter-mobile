@@ -16,13 +16,16 @@ import android.view.ViewGroup;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class SearchResultsMapFragment extends SupportMapFragment {
 	public final static String TAG = "SearchResultsMapFragment";
 	private GoogleMap mMap;
 	private SearchResultsActivity mActivity;
+	private Marker mMyMarker;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -32,7 +35,6 @@ public class SearchResultsMapFragment extends SupportMapFragment {
 		View v = super.onCreateView(inflater,  container, savedInstanceState);
 		initMap();
 		
-		this.setUserLocation();
 		return v;
 	}
 	
@@ -44,9 +46,17 @@ public class SearchResultsMapFragment extends SupportMapFragment {
 	{
 		android.location.Location myLoc = getMyLocation();
 		LatLng myLatLng = new LatLng(myLoc.getLatitude(), myLoc.getLongitude());
-		this.mMap.addMarker(new MarkerOptions().position(myLatLng).title("ME!"));
 		
-		mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(myLatLng, 10));
+		MarkerOptions me = new MarkerOptions().position(myLatLng).title("ME!")
+				.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
+		
+		if(this.mMyMarker == null)
+			this.mMyMarker = this.mMap.addMarker(me);
+		else
+			this.mMyMarker.setPosition(myLatLng);
+		
+		this.mMyMarker.showInfoWindow();
+		mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(myLatLng, 12));
 	}
 	
 	private android.location.Location getMyLocation() {
@@ -72,14 +82,17 @@ public class SearchResultsMapFragment extends SupportMapFragment {
 		if(this.mMap == null)
 			this.mMap = this.getMap();
 		
+		this.setUserLocation();
+		
 		if(users != null)
 		{
 			//add markers to map
 			for(User u : users)
 			{
 				Location loc = u.loc;
-				this.mMap.addMarker(new MarkerOptions().position(loc.coords).title(loc.name));
+				this.mMap.addMarker(new MarkerOptions().position(loc.coords).title(u.getFullName()).snippet(loc.address));
 			}
 		}
+		
 	}
 }
