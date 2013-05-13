@@ -1,11 +1,14 @@
 package me.tuter.fragments;
 
+import java.util.HashMap;
 import java.util.List;
 
 import me.tuter.activities.SearchResultsActivity;
+import me.tuter.activities.ShowUserActivity;
 import me.tutor.datastructures.Location;
 import me.tutor.datastructures.User;
 import android.content.Context;
+import android.content.Intent;
 import android.location.Criteria;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -15,6 +18,7 @@ import android.view.ViewGroup;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
@@ -26,11 +30,13 @@ public class SearchResultsMapFragment extends SupportMapFragment {
 	private GoogleMap mMap;
 	private SearchResultsActivity mActivity;
 	private Marker mMyMarker;
+	private HashMap <Marker, User> mMarkerToUser;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
 		this.mActivity = (SearchResultsActivity) this.getActivity();
+		this.mMarkerToUser = new HashMap<Marker, User>();
 		
 		View v = super.onCreateView(inflater,  container, savedInstanceState);
 		initMap();
@@ -39,6 +45,20 @@ public class SearchResultsMapFragment extends SupportMapFragment {
 	}
 	
 	private void initMap(){
+		this.mMap = this.getMap();
+		this.mMap.setOnInfoWindowClickListener(new OnInfoWindowClickListener()
+		{
+			@Override
+			public void onInfoWindowClick(Marker marker) {
+				User u = SearchResultsMapFragment.this.mMarkerToUser.get(marker);
+				Intent i = new Intent(SearchResultsMapFragment.this.mActivity.getApplicationContext(), ShowUserActivity.class);
+				Bundle extras = new Bundle();
+				extras.putString(SearchResultsActivity.USER_JSON, u.getJSONString());
+				i.putExtras(extras);
+				SearchResultsMapFragment.this.mActivity.startActivity(i);
+				
+			}
+		});
 		this.getList(this.mActivity.getList());
 	}
 	
@@ -79,9 +99,6 @@ public class SearchResultsMapFragment extends SupportMapFragment {
 	
 	public void getList(List<User> users)
 	{
-		if(this.mMap == null)
-			this.mMap = this.getMap();
-		
 		this.setUserLocation();
 		
 		if(users != null)
@@ -90,7 +107,8 @@ public class SearchResultsMapFragment extends SupportMapFragment {
 			for(User u : users)
 			{
 				Location loc = u.loc;
-				this.mMap.addMarker(new MarkerOptions().position(loc.coords).title(u.getFullName()).snippet(loc.address));
+				Marker m = this.mMap.addMarker(new MarkerOptions().position(loc.coords).title(u.getFullName()).snippet(loc.address));
+				this.mMarkerToUser.put(m, u);
 			}
 		}
 		

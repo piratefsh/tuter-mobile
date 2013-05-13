@@ -102,12 +102,20 @@ public class User {
 	public String getFullName(){ return this.firstName + " " + this.lastName;}
 	public String getEmail(){ return this.email;}
 	public String toString(){ return this.getFullName();}
-	public String getAge(){ return this.age;}
-	public String getYear(){ return this.year;}
-	public String getRates(){ return this.rate;}
-	public String getDesc(){ return this.desc;}
+	public String getAge(){ return this.nullHandler(this.age);}
+	public String getYear(){ return this.nullHandler(this.year);}
+	public String getRates(){ return this.nullHandler(this.rate);}
 	public String getId(){ return this.id;}
 	public ArrayList<Group> getGroupsList() {return this.groups;}
+	
+	public String getDesc() { return this.nullHandler(this.desc);}
+	
+	private String nullHandler(String s)
+	{
+		String desc = (s == null || s.equals("null"))? "n/a" : s;
+		return desc;
+	}
+	
 	public String getCoursesString()
 	{
 		String courses = "COURSES: ";
