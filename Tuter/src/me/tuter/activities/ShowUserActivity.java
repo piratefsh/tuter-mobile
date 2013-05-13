@@ -1,5 +1,7 @@
 package me.tuter.activities;
 
+import java.util.Locale;
+
 import me.tuter.R;
 import me.tuter.adapters.GroupsListAdapter;
 import me.tuter.interfaces.GetUserDataTaskActivity;
@@ -8,10 +10,13 @@ import me.tutor.datastructures.User;
 
 import org.json.JSONException;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
@@ -24,7 +29,7 @@ public class ShowUserActivity extends BasicShowActivity implements GetUserDataTa
 	private GetUserDataTask 	mTask;
 	private ListView 			mGroupsListView; //list of user's groups
 	private GroupsListAdapter	mGroupsListViewAdapter; //list of user's groups
-	
+	private User				mUser;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,19 +53,18 @@ public class ShowUserActivity extends BasicShowActivity implements GetUserDataTa
 			}
 		});
 		
-		User tutor = null;
 		try {
-			tutor = new User(mIntent.getExtras().getString(SearchResultsActivity.USER_JSON));
+			this.mUser = new User(mIntent.getExtras().getString(SearchResultsActivity.USER_JSON));
 		} catch (JSONException e) {
 			
 			e.printStackTrace();
 		}
 		
 		//Populate view with known data of user
-		this.populateInitialView(tutor);
+		this.populateInitialView(this.mUser);
 		
 		//Get more user data
-		this.mTask = new GetUserDataTask(this, this, tutor);
+		this.mTask = new GetUserDataTask(this, this, this.mUser);
 		this.mTask.execute();
 	}
 	
@@ -70,6 +74,19 @@ public class ShowUserActivity extends BasicShowActivity implements GetUserDataTa
 		fullNameView.setText(t.getFullName());
 		TextView emailView = (TextView) findViewById(R.id.email);
 		emailView.setText(t.getEmail());
+		
+		emailView.setOnClickListener(new OnClickListener()
+		{
+			@Override
+			public void onClick(View v) {
+				ShowUserActivity.this.setEmailIntent(ShowUserActivity.this);
+			}
+		});
+	}
+	
+	public User getUser()
+	{
+		return this.mUser;
 	}
 	
 	private void populateMoreView(User u)
@@ -81,6 +98,31 @@ public class ShowUserActivity extends BasicShowActivity implements GetUserDataTa
 		
 		TextView address = (TextView) findViewById(R.id.address);
 		address.setText(u.loc.address);
+		address.setOnClickListener(new OnClickListener()
+		{
+
+			@Override
+			public void onClick(View v) 
+			{
+				User u = ShowUserActivity.this.getUser();
+				String uri = String.format(Locale.ENGLISH, "geo:%f,%f", u.loc.coords.latitude, u.loc.coords.longitude);
+				Intent i  = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+				ShowUserActivity.this.startActivity(i);
+			}
+			
+		});
+	}
+	
+	//Code from http://stackoverflow.com/questions/5333119/android-opening-the-email-application
+	public void setEmailIntent(Context context)
+	{
+		final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+
+		emailIntent.setType("plain/text");
+		emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{this.mUser.getEmail()});
+		emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "I'm Interested In Joining Your Tutoring Group!");
+
+		context.startActivity(Intent.createChooser(emailIntent, "Send mail..."));
 	}
 
 	@Override
