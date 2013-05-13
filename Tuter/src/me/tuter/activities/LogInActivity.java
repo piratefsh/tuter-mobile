@@ -18,6 +18,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -64,6 +65,8 @@ public class LogInActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login);
+        
+        this.mPreferences = this.getSharedPreferences(TuterConstants.NAME, Context.MODE_PRIVATE);
 
         // Set up the login form.
         mEmail = getIntent().getStringExtra(EXTRA_EMAIL);
@@ -266,7 +269,6 @@ public class LogInActivity extends Activity {
             		Log.d(TAG, "Successful Login");
             		finish();
             	}
-            	throw new Exception("Here's the exception");
             } catch (Exception e) {
             	e.printStackTrace();
             } finally {
