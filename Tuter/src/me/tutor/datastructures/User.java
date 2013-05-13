@@ -6,6 +6,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.util.Log;
+
 
 public class User {
 	public final String TAG 			= "Tutor";
@@ -21,6 +23,7 @@ public class User {
 	public final String YEAR 			= "year";
 	public final String GROUPS 			= "groups";
 	public final String LOCATION 		= "location";
+	public final String COURSES 		= "courses";
 	
 	private String id;
 	private String firstName;
@@ -32,6 +35,7 @@ public class User {
 	private String desc;
 	private String jsonString;
 	private ArrayList<Group> groups;
+	private ArrayList<Course> courses;
 	
 	public Location loc;
 	
@@ -47,6 +51,7 @@ public class User {
 		this.age 		= js.getString(AGE);
 		this.desc 		= js.getString(DESC);
 		this.groups = new ArrayList<Group>();
+		this.courses = new ArrayList<Course>();
 		
 		//Only get groups if they exist for user
 		if (js.has(GROUPS))
@@ -57,6 +62,19 @@ public class User {
 			{
 				Group g = new Group(groupsJSON.getJSONObject(i));
 				groups.add(g);
+			}
+		}
+		
+		if(js.has(COURSES))
+		{
+			JSONArray jsonCourses = js.getJSONArray(COURSES);
+			
+			for (int i = 0; i < jsonCourses.length(); i++) 
+			{
+				JSONObject j = jsonCourses.getJSONObject(i);
+				Log.d(TAG, j.toString());
+				Course c = new Course(j);
+				courses.add(c);
 			}
 		}
 		
@@ -90,4 +108,17 @@ public class User {
 	public String getDesc(){ return this.desc;}
 	public String getId(){ return this.id;}
 	public ArrayList<Group> getGroupsList() {return this.groups;}
+	public String getCoursesString()
+	{
+		String courses = "COURSES: ";
+		boolean first = true;
+		
+		for(Course c : this.courses)
+		{
+			courses +=  first? c.getCourseCode() : ", " + c.getCourseCode();
+			first = false;
+		}
+		
+		return courses;
+	}
 }

@@ -10,7 +10,6 @@ import me.tuter.interfaces.GetSearchResultsTaskActivity;
 import me.tuter.tasks.GetSearchResultsTask;
 import me.tutor.datastructures.User;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.Tab;
@@ -83,7 +82,6 @@ public class SearchResultsActivity extends BasicFragmentActivity implements GetS
 		else
 		{
 			this.mMapFragment = (SearchResultsMapFragment) this.getSupportFragmentManager().findFragmentByTag(MAP_FRAGMENT_TAG);
-//			this.mMapFragment.getList(this.mResults);
 		}
 	}
 	

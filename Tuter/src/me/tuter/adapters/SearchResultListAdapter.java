@@ -38,7 +38,7 @@ public class SearchResultListAdapter extends BasicListAdapter<User> {
 		
 		User curr = getItem(position);
 		text1.setText(curr.getFullName());
-		text2.setText(curr.getEmail());
+		text2.setText(curr.getCoursesString());
 		
 		return view;
 	}
