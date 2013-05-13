@@ -20,6 +20,4 @@ public class GetUserDataMessage {
 	{
 		return new User(this.rawJSON);
 	}
-	
-
 }

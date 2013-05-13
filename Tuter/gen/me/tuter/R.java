@@ -209,9 +209,10 @@ containing a value of this type.
         public static final int google_map_v2=0x7f090003;
         public static final int search_result_list_adapter=0x7f090004;
         public static final int search_results=0x7f090005;
-        public static final int show_user=0x7f090006;
-        public static final int sign_up=0x7f090007;
-        public static final int view_organizations=0x7f090008;
+        public static final int show_organization=0x7f090006;
+        public static final int show_user=0x7f090007;
+        public static final int sign_up=0x7f090008;
+        public static final int view_organizations=0x7f090009;
     }
     public static final class string {
         public static final int Tuter=0x7f05003e;

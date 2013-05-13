@@ -76,9 +76,10 @@ int menu activity_welcome 0x7f090002
 int menu google_map_v2 0x7f090003
 int menu search_result_list_adapter 0x7f090004
 int menu search_results 0x7f090005
-int menu show_user 0x7f090006
-int menu sign_up 0x7f090007
-int menu view_organizations 0x7f090008
+int menu show_organization 0x7f090006
+int menu show_user 0x7f090007
+int menu sign_up 0x7f090008
+int menu view_organizations 0x7f090009
 int string Tuter 0x7f05003e
 int string action_forgot_password 0x7f05002e
 int string action_settings 0x7f050024
