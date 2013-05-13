@@ -18,6 +18,6 @@ public class Location {
 	{
 		this.name = js.getString(NAME);
 		this.address= js.getString(ADDRESS);
-		this.coords = new LatLng(js.getLong(LAT), js.getLong(LNG));
+		this.coords = new LatLng(js.getDouble(LAT), js.getDouble(LNG));
 	}
 }
