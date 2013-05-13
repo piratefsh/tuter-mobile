@@ -20,10 +20,13 @@ public class SearchResultsActivity extends BasicFragmentActivity implements GetS
 
 	private GetSearchResultsTask		mGetSearchResultsTask;
 	private List<User> 					mResults;
+	private SearchResultsMapFragment	mMapFragment;
 	private SearchResultsListFragment	mListFragment;
 	
 	public static final String USER_JSON = "tutorJSON";
 	public static final String TAG = "SearchResultsActivity";
+	public static final String MAP_FRAGMENT_TAG = "map";
+	public static final String LIST_FRAGMENT_TAG = "list";
 	
 	String[] values = new String[] { "Loading" };
     @Override
@@ -47,16 +50,17 @@ public class SearchResultsActivity extends BasicFragmentActivity implements GetS
         Tab tab1 = actionbar.newTab().setText("Map");
         Tab tab2 = actionbar.newTab().setText("List");
         
-        tab1.setTabListener(new TuterTabListener<SearchResultsMapFragment>(this, "map",
+        tab1.setTabListener(new TuterTabListener<SearchResultsMapFragment>(this, MAP_FRAGMENT_TAG,
         		SearchResultsMapFragment.class));
   
-        tab2.setTabListener(new TuterTabListener<SearchResultsListFragment>(this, "list",
+        tab2.setTabListener(new TuterTabListener<SearchResultsListFragment>(this, LIST_FRAGMENT_TAG,
                 SearchResultsListFragment.class));
   
         actionbar.addTab(tab2);
         actionbar.addTab(tab1); 
         
-        this.mListFragment = (SearchResultsListFragment) this.getSupportFragmentManager().findFragmentByTag("list");
+        this.mListFragment = (SearchResultsListFragment) this.getSupportFragmentManager().findFragmentByTag(LIST_FRAGMENT_TAG);
+        this.mMapFragment = (SearchResultsMapFragment) this.getSupportFragmentManager().findFragmentByTag(MAP_FRAGMENT_TAG);
     }
    
 	@Override
@@ -65,15 +69,24 @@ public class SearchResultsActivity extends BasicFragmentActivity implements GetS
 		if (this.mListFragment != null)
 		{
 			this.mListFragment.getList(this.mResults);
-			Log.d(TAG, "Update ListView in fragment");
 		}
 		else
 		{
-			this.mListFragment = (SearchResultsListFragment) this.getSupportFragmentManager().findFragmentByTag("list");
+			this.mListFragment = (SearchResultsListFragment) this.getSupportFragmentManager().findFragmentByTag(LIST_FRAGMENT_TAG);
 			this.mListFragment.getList(this.mResults);
-			Log.d(TAG, "Find fragment and Update ListView in fragment");
+		}
+		
+		if (this.mMapFragment != null)
+		{
+			this.mMapFragment.getList(this.mResults);
+		}
+		else
+		{
+			this.mMapFragment = (SearchResultsMapFragment) this.getSupportFragmentManager().findFragmentByTag(MAP_FRAGMENT_TAG);
+//			this.mMapFragment.getList(this.mResults);
 		}
 	}
+	
 	
 	public List<User> getList()
 	{

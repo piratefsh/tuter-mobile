@@ -65,11 +65,13 @@ public class BasicHTTPConnection {
 		catch (SocketTimeoutException e)
 		{
 			Log.d(TAG, "Connection timeout");
+			e.printStackTrace();
 			return null;
 		}
 		catch (IOException e) 
 		{
 			Log.d(TAG, "Connection error");
+			e.printStackTrace();
 			return null;
 		}		
 		return inputStream;

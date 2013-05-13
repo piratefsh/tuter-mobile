@@ -19,6 +19,7 @@ public class User {
 	public final String ID 				= "id";
 	public final String YEAR 			= "year";
 	public final String GROUPS 			= "groups";
+	public final String LOCATION 		= "location";
 	
 	private String id;
 	private String firstName;
@@ -29,6 +30,8 @@ public class User {
 	private String rate;
 	private String jsonString;
 	private ArrayList<Group> groups;
+	
+	public Location loc;
 	
 	public User(JSONObject js) throws JSONException
 	{
@@ -44,14 +47,21 @@ public class User {
 		this.groups = new ArrayList<Group>();
 		
 		//Only get groups if they exist for user
-		if(!js.has(GROUPS)) return;
-		
-		JSONArray groupsJSON = js.getJSONArray(GROUPS);
-		
-		for (int i = 0; i < groupsJSON.length(); i++) 
+		if (js.has(GROUPS))
 		{
-			Group g = new Group(groupsJSON.getJSONObject(i));
-			groups.add(g);
+			JSONArray groupsJSON = js.getJSONArray(GROUPS);
+			
+			for (int i = 0; i < groupsJSON.length(); i++) 
+			{
+				Group g = new Group(groupsJSON.getJSONObject(i));
+				groups.add(g);
+			}
+		}
+		
+		// Get location of user
+		if (js.has(LOCATION))
+		{
+			this.loc = new Location(js.getJSONObject(LOCATION));
 		}
 	}
 	
