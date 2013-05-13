@@ -6,6 +6,7 @@ import java.util.List;
 import me.tuter.R;
 import me.tutor.datastructures.Organization;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -64,8 +65,14 @@ public class OrganizationsListAdapter extends ArrayAdapter<Organization>
 		TextView text2 = (TextView) view.findViewById(R.id.text2);
 		
 		Organization curr = getItem(position);
+		
+		text1.setTextColor(Color.WHITE);
+		text2.setTextColor(Color.WHITE);
+		
+		text1.setTextSize(20);
+		
 		text1.setText(curr.getName());
-		text2.setText(curr.getEmail());
+		text2.setText(curr.getDescription());
 		
 		return view;
 	}

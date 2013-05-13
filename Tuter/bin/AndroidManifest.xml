@@ -70,7 +70,8 @@
         </activity>
         <activity
             android:name="me.tuter.activities.ViewOrganizationsActivity"
-            android:label="@string/title_activity_view_organizations" >
+            android:label="@string/title_activity_view_organizations"
+            android:configChanges="orientation|screenSize">
         </activity>
         <activity
             android:name="me.tuter.activities.ShowOrganizationActivity"

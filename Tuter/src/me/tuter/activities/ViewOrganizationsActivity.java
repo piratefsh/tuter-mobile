@@ -4,7 +4,6 @@ import java.util.List;
 
 import me.tuter.R;
 import me.tuter.R.layout;
-import me.tuter.R.menu;
 import me.tuter.adapters.OrganizationsListAdapter;
 import me.tuter.interfaces.GetOrganizationsTaskActivity;
 import me.tuter.tasks.GetOrganizationsTask;
