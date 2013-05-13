@@ -44,10 +44,15 @@ public class BasicHTTPConnection {
 		urlConn				= (HttpURLConnection) urlToRequest.openConnection();
 		urlConn.setConnectTimeout(TuterConstants.CONN_TIMEOUT);
 		urlConn.setReadTimeout(TuterConstants.READ_TIMEOUT);
-		
+		urlConn.setInstanceFollowRedirects(true);
 		//handle issues
 		int statusCode = urlConn.getResponseCode();
-		if(statusCode != HttpURLConnection.HTTP_OK)
+		if(statusCode == HttpURLConnection.HTTP_MOVED_PERM || statusCode == HttpURLConnection.HTTP_MOVED_TEMP)
+		{
+			urlConn.getInputStream();
+			Log.d(TAG, "Redirected to:" + urlConn.getURL());
+		}
+		else if(statusCode != HttpURLConnection.HTTP_OK)
 		{
 			Log.d(TAG, "Connection error: " + statusCode);
 		}

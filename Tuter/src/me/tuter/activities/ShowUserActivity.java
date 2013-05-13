@@ -96,6 +96,8 @@ public class ShowUserActivity extends BasicShowActivity implements GetUserDataTa
 		detailsText = detailsText.replace("#{AGE}", u.getAge()).replace("#{YEAR}", u.getYear()).replace("#{RATE}", u.getRates());
 		details.setText(detailsText);
 		
+		TextView desc = (TextView) findViewById(R.id.description);
+		desc.setText(u.getDesc());
 		TextView address = (TextView) findViewById(R.id.address);
 		address.setText(u.loc.address);
 		address.setOnClickListener(new OnClickListener()
@@ -105,9 +107,12 @@ public class ShowUserActivity extends BasicShowActivity implements GetUserDataTa
 			public void onClick(View v) 
 			{
 				User u = ShowUserActivity.this.getUser();
-				String uri = String.format(Locale.ENGLISH, "geo:%f,%f", u.loc.coords.latitude, u.loc.coords.longitude);
-				Intent i  = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-				ShowUserActivity.this.startActivity(i);
+				if(u.loc.coords != null)
+				{
+					String uri = String.format(Locale.ENGLISH, "geo:0,0?q=%s&z=10", u.loc.address);
+					Intent i  = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+					ShowUserActivity.this.startActivity(i);
+				}
 			}
 			
 		});

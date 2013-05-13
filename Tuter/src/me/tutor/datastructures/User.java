@@ -12,6 +12,7 @@ public class User {
 	public final String FIRSTNAME_KEY 	= "first_name";
 	public final String LASTNAME_KEY 	= "last_name";
 	public final String AGE 			= "age";
+	public final String DESC		 	= "desc";
 	public final String YEAR_IN_SCHOOL 	= "year";
 	public final String PHOTO 			= "photo";
 	public final String RATE 			= "rate";
@@ -28,6 +29,7 @@ public class User {
 	private String year;
 	private String age;
 	private String rate;
+	private String desc;
 	private String jsonString;
 	private ArrayList<Group> groups;
 	
@@ -43,7 +45,7 @@ public class User {
 		this.id 		= js.getString(ID);
 		this.year 		= js.getString(YEAR);
 		this.age 		= js.getString(AGE);
-		
+		this.desc 		= js.getString(DESC);
 		this.groups = new ArrayList<Group>();
 		
 		//Only get groups if they exist for user
@@ -63,6 +65,8 @@ public class User {
 		{
 			this.loc = new Location(js.getJSONObject(LOCATION));
 		}
+		
+		
 	}
 	
 	//Alternate constructor for taking in String JSON
@@ -83,6 +87,7 @@ public class User {
 	public String getAge(){ return this.age;}
 	public String getYear(){ return this.year;}
 	public String getRates(){ return this.rate;}
+	public String getDesc(){ return this.desc;}
 	public String getId(){ return this.id;}
 	public ArrayList<Group> getGroupsList() {return this.groups;}
 }
