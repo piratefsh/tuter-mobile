@@ -20,9 +20,9 @@ import android.widget.TextView;
 public class ShowUserActivity extends BasicShowActivity implements GetUserDataTaskActivity {
 	public static final String TAG = "ShowUserActivity";
 	public static final String GROUP = "group";
-	private Intent 			mIntent;
-	private GetUserDataTask mTask;
-	private ListView 		mGroupsListView; //list of user's groups
+	private Intent 				mIntent;
+	private GetUserDataTask 	mTask;
+	private ListView 			mGroupsListView; //list of user's groups
 	private GroupsListAdapter	mGroupsListViewAdapter; //list of user's groups
 	
 	@Override
@@ -78,6 +78,9 @@ public class ShowUserActivity extends BasicShowActivity implements GetUserDataTa
 		String detailsText = getResources().getString(R.string.tutor_details);
 		detailsText = detailsText.replace("#{AGE}", u.getAge()).replace("#{YEAR}", u.getYear()).replace("#{RATE}", u.getRates());
 		details.setText(detailsText);
+		
+		TextView address = (TextView) findViewById(R.id.address);
+		address.setText(u.loc.address);
 	}
 
 	@Override
