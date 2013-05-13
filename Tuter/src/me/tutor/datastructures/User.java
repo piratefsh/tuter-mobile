@@ -6,9 +6,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 
+@SuppressLint("DefaultLocale")
 public class User {
 	public final String TAG 			= "Tutor";
 	public final String FIRSTNAME_KEY 	= "first_name";
@@ -116,6 +118,33 @@ public class User {
 		return desc;
 	}
 	
+	public boolean isIn(String loc)
+	{
+		
+		if(loc == null || loc.length() == 0 || this.loc.name.toUpperCase().contains(loc.toUpperCase()) 
+				|| this.loc.address.toUpperCase().contains(loc.toUpperCase()))
+			return true;
+		
+		return false;
+	}
+	
+	public boolean teaches(String course)
+	{
+		if (this.courses == null || course == null || course.length() == 0)
+		{
+			return true;
+		}
+		
+		for(Course c: courses)
+		{
+			if(c.getCourseCode().toUpperCase().contains(course.toUpperCase()) || c.getName().toUpperCase().contains(course.toUpperCase()))
+			{
+				return true;
+			}
+		}
+		
+		return false;
+	}
 	public String getCoursesString()
 	{
 		String courses = "COURSES: ";

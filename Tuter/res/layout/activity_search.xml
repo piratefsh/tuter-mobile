@@ -20,12 +20,14 @@
 		    android:background="@color/dark_grey">
 		    
 		    <EditText
+		        android:id="@+id/course_field"
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
 		        android:hint="@string/search_courseHint"
 		        android:inputType="text" />
 
 		    <EditText
+		        android:id="@+id/location_field"
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
 		        android:hint="@string/search_locationHint"
@@ -36,14 +38,14 @@
 			    android:layout_width="fill_parent">
     		    
 		    <CheckBox
-		        android:id="@+id/checkboxVolunteer"
+		        android:id="@+id/volunteer_field"
 		        android:layout_height="wrap_content"
 		        android:layout_width="wrap_content"
 		        android:text="@string/search_volunteerLabel"
 		    	android:textColor="@color/white"
 		        android:layout_weight="1"/>
 		    <CheckBox
-		        android:id="@+id/checkboxPaid"
+		        android:id="@+id/paid_field"
 		        android:layout_height="wrap_content"
 		        android:layout_width="wrap_content"
 		    	android:textColor="@color/white"

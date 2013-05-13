@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockFragment;
 
@@ -36,7 +37,7 @@ public class SearchResultsListFragment extends SherlockFragment {
 		this.mActivity = (SearchResultsActivity) this.getActivity();
 		this.initViews();
 		
-		this.getList(this.mActivity.getList());
+		this.getList(this.mActivity.getList(), this.mActivity.getSearchParamsString());
 		
 		return v;
 	}
@@ -73,8 +74,13 @@ public class SearchResultsListFragment extends SherlockFragment {
     	});
     }
 	 	
- 	public void getList(List<User> users)
+ 	public void getList(List<User> users, String searchParams)
  	{
+ 		
+ 		TextView searchParamsTV = (TextView) this.mActivity.findViewById(R.id.search_params); 
+ 		if(searchParamsTV != null)
+ 			searchParamsTV.setText("" + getResources().getString(R.string.search_params) + searchParams);
+ 		
  		
  		if(users == null) 
  			return;

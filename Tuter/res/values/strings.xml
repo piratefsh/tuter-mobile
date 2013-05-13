@@ -24,6 +24,7 @@
     <string name="action_settings">Settings</string>
 
     <!-- SearchResultsActivity Strings -->
+    <string name="search_params">Searching for: </string>
     <string name="title_activity_search_results">Search Results</string>
     <string name="title_activity_google_map_v2">GoogleMapV2</string>
 
