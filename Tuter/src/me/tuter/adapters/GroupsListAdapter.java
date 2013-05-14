@@ -3,7 +3,7 @@ package me.tuter.adapters;
 import java.util.ArrayList;
 
 import me.tuter.R;
-import me.tutor.datastructures.Group;
+import me.tuter.datastructures.Group;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;

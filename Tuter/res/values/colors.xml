@@ -7,5 +7,6 @@
     <color name="tuter_grey">#3E454C</color>
     <color name="tuter_blue">#0985c4</color>
     <color name="tuter_lightblue">#7ECEFD</color>
+    <color name="light_grey">#cccccc</color>
     
 </resources>

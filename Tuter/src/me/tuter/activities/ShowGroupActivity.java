@@ -1,11 +1,11 @@
 package me.tuter.activities;
 
 import me.tuter.R;
+import me.tuter.datastructures.Course;
+import me.tuter.datastructures.Group;
+import me.tuter.datastructures.User;
 import me.tuter.interfaces.GetGroupDataTaskActivity;
 import me.tuter.tasks.GetGroupDataTask;
-import me.tutor.datastructures.Course;
-import me.tutor.datastructures.Group;
-import me.tutor.datastructures.User;
 
 import org.json.JSONException;
 

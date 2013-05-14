@@ -6,7 +6,7 @@ import me.tuter.R;
 import me.tuter.activities.SearchResultsActivity;
 import me.tuter.activities.ShowUserActivity;
 import me.tuter.adapters.SearchResultListAdapter;
-import me.tutor.datastructures.User;
+import me.tuter.datastructures.User;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;

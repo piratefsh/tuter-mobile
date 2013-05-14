@@ -13,6 +13,7 @@ public class TuterConstants {
 	
 	public static final String TASKS_URL = DOMAIN + "/api/v1/tasks.json";
     public static final String LOGIN_API_ENDPOINT_URL = DOMAIN + "/api/v1/sessions.json";
+	public static final String ORGS_LIST= "/organizations.json";
 
 	public static final int READ_TIMEOUT 	= 20000;
 	public static final int CONN_TIMEOUT 	= 20000;

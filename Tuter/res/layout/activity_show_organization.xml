@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:padding="12dp"
+    tools:context=".ShowUserActivity" >
+    
+        
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/text_info">
+		<ImageView
+			android:layout_width="50dp"
+			android:minWidth="50dp"
+			android:layout_marginRight="12dp"
+			android:layout_marginBottom="12dp"
+			android:layout_height="50dp"
+			android:adjustViewBounds="true"
+			android:src="@drawable/organization_pending_image"
+			android:id="@+id/imageView1"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toRightOf="@id/imageView1">
+		    <TextView
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/loading"
+		        android:id="@+id/name"
+		        style="@style/h1_text" />
+		    
+		    <TextView
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/loading"
+	        	android:id="@+id/description"
+	        	android:textStyle="italic"
+	        	android:textColor="@color/light_grey"
+	        	android:textSize="13sp" />
+  		</LinearLayout>
+    </RelativeLayout>
+    
+    <LinearLayout
+        android:layout_marginTop="12dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/text_info">
+   	    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/loading"
+        	android:id="@+id/website"
+        	android:autoLink="web"
+        	android:textSize="18sp"/>
+	    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/loading"
+        	android:id="@+id/email"
+        	android:textSize="18sp"
+        	android:autoLink="email"
+        	android:layout_marginBottom="20dp" />
+   	    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/loading"
+        	android:id="@+id/about_organization"
+        	android:textSize="18sp"
+     	    android:layout_marginBottom="20dp" /> 
+    
+	    <ListView
+	        android:id="@+id/programs_list"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content" >
+	    </ListView>
+    </LinearLayout>
+    
+</RelativeLayout>

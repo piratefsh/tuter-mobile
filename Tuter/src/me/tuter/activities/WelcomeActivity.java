@@ -18,6 +18,7 @@ public class WelcomeActivity extends Activity {
 	private Button mButtonSearch;
 	private Button mButtonSignUp;
 	private Button mButtonLogIn;
+	private Button mButtonOrganizations;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -52,6 +53,7 @@ public class WelcomeActivity extends Activity {
 		this.mButtonSearch = (Button) this.findViewById(R.id.welcome_searchButton);
 		this.mButtonLogIn = (Button) this.findViewById(R.id.welcome_logInButton);
 		this.mButtonSignUp = (Button) this.findViewById(R.id.welcome_signUpButton);
+		this.mButtonOrganizations = (Button) this.findViewById(R.id.welcome_Organizations);
 		
 		this.mButtonSearch.setOnClickListener(new OnClickListener(){
 			
@@ -78,6 +80,16 @@ public class WelcomeActivity extends Activity {
 			public void onClick(View v) {
 				Intent signUpIntent = new Intent(WelcomeActivity.this, SignUpActivity.class);
 				WelcomeActivity.this.startActivity(signUpIntent);
+			}
+			
+		});
+		
+		this.mButtonOrganizations.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				Intent organizationsIntent = new Intent(WelcomeActivity.this, ViewOrganizationsActivity.class);
+				WelcomeActivity.this.startActivity(organizationsIntent);
 			}
 			
 		});

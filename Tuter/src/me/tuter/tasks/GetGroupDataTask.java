@@ -4,10 +4,10 @@ import java.io.InputStream;
 import java.util.Scanner;
 
 import me.tuter.TuterConstants;
+import me.tuter.datastructures.Group;
 import me.tuter.http.BasicHTTPConnection;
 import me.tuter.interfaces.GetGroupDataTaskActivity;
 import me.tuter.messages.GetGroupDataMessage;
-import me.tutor.datastructures.Group;
 
 import org.json.JSONException;
 

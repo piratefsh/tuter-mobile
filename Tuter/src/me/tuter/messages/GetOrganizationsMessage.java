@@ -3,21 +3,22 @@ package me.tuter.messages;
 import java.util.ArrayList;
 import java.util.List;
 
-import me.tuter.datastructures.User;
+import me.tuter.datastructures.Organization;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONArray;
 
 import android.content.Context;
 import android.util.Log;
 
-public class GetSearchResultsMessage {
-	public final String TAG = "GetSearchResultsMessage";
-
+public class GetOrganizationsMessage
+{
+	public static final String TAG = "GetOrganizationsMessage";
 	
 	JSONArray mResults;
-	public GetSearchResultsMessage(String jsonString, Context c)
+	
+	public GetOrganizationsMessage(String jsonString, Context c)
 	{
 			
 		try {
@@ -30,21 +31,22 @@ public class GetSearchResultsMessage {
 		}
 	}
 	
-	public List<User> extractTutors()
+	
+	public List<Organization> extractOrganizations()
 	{
-		List<User> tutors = new ArrayList<User>();
+		List<Organization> organizations = new ArrayList<Organization>();
 		
 		for(int i = 0; i < this.mResults.length(); i++)
 		{
 			JSONObject curr;
 			try {
 				curr = (JSONObject) this.mResults.get(i);
-				tutors.add(new User(curr));
+				organizations.add(new Organization(curr));
 			} catch (JSONException e) {
 				Log.d(TAG, "Bad JSON");
 			}
 		}
 		
-		return tutors;
+		return organizations;
 	}
 }

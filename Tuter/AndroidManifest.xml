@@ -80,6 +80,15 @@
         <activity
             android:name="me.tuter.activities.BasicShowActivity"
             android:label="@string/title_activity_basic_show" >
+           </activity>
+ 		<activity
+            android:name="me.tuter.activities.ViewOrganizationsActivity"
+            android:label="@string/title_activity_view_organizations"
+            android:configChanges="orientation|screenSize">
+        </activity>
+        <activity
+            android:name="me.tuter.activities.ShowOrganizationActivity"
+            android:label="@string/title_activity_show_organization" >
         </activity>
     </application>
 

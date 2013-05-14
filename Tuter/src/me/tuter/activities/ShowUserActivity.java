@@ -4,9 +4,9 @@ import java.util.Locale;
 
 import me.tuter.R;
 import me.tuter.adapters.GroupsListAdapter;
+import me.tuter.datastructures.User;
 import me.tuter.interfaces.GetUserDataTaskActivity;
 import me.tuter.tasks.GetUserDataTask;
-import me.tutor.datastructures.User;
 
 import org.json.JSONException;
 

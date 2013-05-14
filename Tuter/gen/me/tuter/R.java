@@ -1040,10 +1040,12 @@ containing a value of this type.
         public static final int button=0x7f020072;
         public static final int button_released=0x7f020073;
         public static final int ic_launcher=0x7f020074;
-        public static final int tuter_title=0x7f020075;
-        public static final int welcome_background=0x7f020076;
+        public static final int organization_pending_image=0x7f020075;
+        public static final int tuter_title=0x7f020076;
+        public static final int welcome_background=0x7f020077;
     }
     public static final class id {
+        public static final int about_organization=0x7f04004b;
         public static final int abs__action_bar=0x7f040024;
         public static final int abs__action_bar_container=0x7f040023;
         public static final int abs__action_bar_subtitle=0x7f040015;
@@ -1083,26 +1085,27 @@ containing a value of this type.
         public static final int abs__textButton=0x7f040017;
         public static final int abs__title=0x7f04001f;
         public static final int abs__up=0x7f04000f;
-        public static final int action_forgot_password=0x7f04005e;
-        public static final int action_settings=0x7f04005d;
-        public static final int address=0x7f04004a;
-        public static final int button_refresh=0x7f040058;
-        public static final int checkBoxStudent=0x7f040050;
-        public static final int checkBoxTutor=0x7f04004f;
+        public static final int action_forgot_password=0x7f040065;
+        public static final int action_settings=0x7f040064;
+        public static final int address=0x7f04004f;
+        public static final int button_refresh=0x7f04005f;
+        public static final int checkBoxStudent=0x7f040055;
+        public static final int checkBoxTutor=0x7f040054;
         public static final int course_field=0x7f04003e;
         public static final int description=0x7f040049;
         public static final int disableHome=0x7f04000d;
         public static final int edit_query=0x7f04002a;
         public static final int email=0x7f040039;
-        public static final int full_name=0x7f040048;
+        public static final int full_name=0x7f04004e;
         public static final int group_course=0x7f040042;
         public static final int group_desc=0x7f040043;
         public static final int group_name=0x7f040041;
-        public static final int groups_header=0x7f04004c;
-        public static final int groups_list=0x7f04004d;
+        public static final int groups_header=0x7f040051;
+        public static final int groups_list=0x7f040052;
         public static final int homeAsUp=0x7f04000a;
         public static final int hybrid=0x7f040004;
-        public static final int image=0x7f040047;
+        public static final int image=0x7f04004d;
+        public static final int imageView1=0x7f040047;
         public static final int listMode=0x7f040006;
         public static final int location_field=0x7f04003f;
         public static final int login=0x7f04003b;
@@ -1110,15 +1113,18 @@ containing a value of this type.
         public static final int login_status=0x7f040036;
         public static final int login_status_message=0x7f040037;
         public static final int map=0x7f04003d;
-        public static final int menu_forgot_password=0x7f04005b;
-        public static final int menu_settings=0x7f04005c;
+        public static final int menu_forgot_password=0x7f040062;
+        public static final int menu_settings=0x7f040063;
+        public static final int name=0x7f040048;
         public static final int none=0x7f040000;
         public static final int normal=0x7f040001;
+        public static final int organization_name=0x7f040056;
         public static final int password=0x7f04003a;
-        public static final int reenter_password=0x7f04004e;
-        public static final int results_list=0x7f040057;
+        public static final int programs_list=0x7f04004c;
+        public static final int reenter_password=0x7f040053;
+        public static final int results_list=0x7f04005e;
         public static final int satellite=0x7f040002;
-        public static final int search_params=0x7f040056;
+        public static final int search_params=0x7f04005d;
         public static final int search_searchButton=0x7f040040;
         public static final int showCustom=0x7f04000c;
         public static final int showHome=0x7f040009;
@@ -1127,17 +1133,19 @@ containing a value of this type.
         public static final int students_list=0x7f040045;
         public static final int tabMode=0x7f040007;
         public static final int terrain=0x7f040003;
-        public static final int text1=0x7f040059;
-        public static final int text2=0x7f04005a;
+        public static final int text1=0x7f040060;
+        public static final int text2=0x7f040061;
         public static final int text_info=0x7f040046;
-        public static final int tuter_logo=0x7f040051;
-        public static final int tutor_details=0x7f04004b;
+        public static final int tuter_logo=0x7f040057;
+        public static final int tutor_details=0x7f040050;
         public static final int tutors_list=0x7f040044;
         public static final int useLogo=0x7f040008;
-        public static final int welcome_buttons=0x7f040052;
-        public static final int welcome_logInButton=0x7f040054;
-        public static final int welcome_searchButton=0x7f040053;
-        public static final int welcome_signUpButton=0x7f040055;
+        public static final int website=0x7f04004a;
+        public static final int welcome_Organizations=0x7f04005a;
+        public static final int welcome_buttons=0x7f040058;
+        public static final int welcome_logInButton=0x7f04005b;
+        public static final int welcome_searchButton=0x7f040059;
+        public static final int welcome_signUpButton=0x7f04005c;
         public static final int wrap_content=0x7f040005;
     }
     public static final class integer {
@@ -1170,14 +1178,16 @@ containing a value of this type.
         public static final int activity_search=0x7f030017;
         public static final int activity_search_results=0x7f030018;
         public static final int activity_show_group=0x7f030019;
-        public static final int activity_show_user=0x7f03001a;
-        public static final int activity_sign_up=0x7f03001b;
-        public static final int activity_welcome=0x7f03001c;
-        public static final int fragment_search_results_list=0x7f03001d;
-        public static final int fragment_search_results_map=0x7f03001e;
-        public static final int list_single_result=0x7f03001f;
-        public static final int sherlock_spinner_dropdown_item=0x7f030020;
-        public static final int sherlock_spinner_item=0x7f030021;
+        public static final int activity_show_organization=0x7f03001a;
+        public static final int activity_show_user=0x7f03001b;
+        public static final int activity_sign_up=0x7f03001c;
+        public static final int activity_view_organizations=0x7f03001d;
+        public static final int activity_welcome=0x7f03001e;
+        public static final int fragment_search_results_list=0x7f03001f;
+        public static final int fragment_search_results_map=0x7f030020;
+        public static final int list_single_result=0x7f030021;
+        public static final int sherlock_spinner_dropdown_item=0x7f030022;
+        public static final int sherlock_spinner_item=0x7f030023;
     }
     public static final class menu {
         public static final int activity_main=0x7f0b0000;
@@ -1189,11 +1199,13 @@ containing a value of this type.
         public static final int search_result_list_adapter=0x7f0b0006;
         public static final int search_results=0x7f0b0007;
         public static final int show_group=0x7f0b0008;
-        public static final int show_user=0x7f0b0009;
-        public static final int sign_up=0x7f0b000a;
+        public static final int show_organization=0x7f0b0009;
+        public static final int show_user=0x7f0b000a;
+        public static final int sign_up=0x7f0b000b;
+        public static final int view_organizations=0x7f0b000c;
     }
     public static final class string {
-        public static final int Tuter=0x7f050051;
+        public static final int Tuter=0x7f050054;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
         public static final int abs__action_bar_home_description=0x7f050011;
@@ -1233,11 +1245,11 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abs__shareactionprovider_share_with_application=0x7f050018;
-        public static final int action_forgot_password=0x7f05003e;
-        public static final int action_settings=0x7f050030;
-        public static final int action_sign_in_register=0x7f05003b;
-        public static final int action_sign_in_short=0x7f05003d;
-        public static final int action_sign_up=0x7f05003c;
+        public static final int action_forgot_password=0x7f05003f;
+        public static final int action_settings=0x7f050031;
+        public static final int action_sign_in_register=0x7f05003c;
+        public static final int action_sign_in_short=0x7f05003e;
+        public static final int action_sign_up=0x7f05003d;
         public static final int app_name=0x7f05001e;
         /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=70] 
          */
@@ -1301,62 +1313,65 @@ containing a value of this type.
         find the service-side assets. [CHAR LIMIT=25] 
          */
         public static final int common_signin_button_text_long=0x7f05000d;
-        public static final int error_field_required=0x7f050043;
-        public static final int error_incorrect_password=0x7f050042;
-        public static final int error_invalid_email=0x7f050040;
-        public static final int error_invalid_password=0x7f050041;
+        public static final int error_field_required=0x7f050044;
+        public static final int error_incorrect_password=0x7f050043;
+        public static final int error_invalid_email=0x7f050041;
+        public static final int error_invalid_password=0x7f050042;
         public static final int hello_world=0x7f050021;
-        public static final int loading=0x7f05004b;
-        public static final int login_progress_signing_in=0x7f05003f;
+        public static final int loading=0x7f05004c;
+        public static final int login_progress_signing_in=0x7f050040;
         /**  Dummy Text 
          */
-        public static final int lorem_ipsum=0x7f050049;
+        public static final int lorem_ipsum=0x7f05004a;
         public static final int menu_settings=0x7f050022;
         /**  Error messages 
          */
-        public static final int network_err_msg=0x7f050047;
+        public static final int network_err_msg=0x7f050048;
         /**  LogInActivity and SignUpActivity Strings 
  Strings related to login 
          */
-        public static final int prompt_email=0x7f050038;
-        public static final int prompt_password=0x7f05003a;
-        public static final int prompt_reenterPassword=0x7f050039;
-        public static final int refresh_button=0x7f050048;
-        public static final int searchResults_results=0x7f05002e;
-        public static final int search_courseHint=0x7f050028;
+        public static final int prompt_email=0x7f050039;
+        public static final int prompt_password=0x7f05003b;
+        public static final int prompt_reenterPassword=0x7f05003a;
+        public static final int refresh_button=0x7f050049;
+        public static final int searchResults_results=0x7f05002f;
+        public static final int search_courseHint=0x7f050029;
         /**  SearchActivity Strings 
          */
-        public static final int search_courseLabel=0x7f050027;
-        public static final int search_locationHint=0x7f05002a;
-        public static final int search_locationLabel=0x7f050029;
-        public static final int search_paidLabel=0x7f05002c;
+        public static final int search_courseLabel=0x7f050028;
+        public static final int search_locationHint=0x7f05002b;
+        public static final int search_locationLabel=0x7f05002a;
+        public static final int search_paidLabel=0x7f05002d;
         /**  SearchResultsActivity Strings 
          */
-        public static final int search_params=0x7f050031;
-        public static final int search_searchButton=0x7f05002d;
-        public static final int search_volunteerLabel=0x7f05002b;
-        public static final int show_group_students_header=0x7f050037;
+        public static final int search_params=0x7f050032;
+        public static final int search_searchButton=0x7f05002e;
+        public static final int search_volunteerLabel=0x7f05002c;
+        public static final int show_group_students_header=0x7f050038;
         /**  ShowGroupActivity String 
          */
-        public static final int show_group_tutors_header=0x7f050036;
-        public static final int show_user_groups=0x7f050035;
-        public static final int signup_checkbox_student=0x7f050044;
-        public static final int signup_checkbox_tutor=0x7f050045;
-        public static final int signup_im_a=0x7f050046;
-        public static final int title_activity_basic_show=0x7f05004d;
-        public static final int title_activity_google_map_v2=0x7f050033;
-        public static final int title_activity_login=0x7f05004e;
-        public static final int title_activity_register=0x7f05004f;
-        public static final int title_activity_search=0x7f05002f;
-        public static final int title_activity_search_results=0x7f050032;
-        public static final int title_activity_show_group=0x7f05004c;
-        public static final int title_activity_show_user=0x7f05004a;
-        public static final int title_activity_sign_up=0x7f050050;
+        public static final int show_group_tutors_header=0x7f050037;
+        public static final int show_user_groups=0x7f050036;
+        public static final int signup_checkbox_student=0x7f050045;
+        public static final int signup_checkbox_tutor=0x7f050046;
+        public static final int signup_im_a=0x7f050047;
+        public static final int title_activity_basic_show=0x7f05004e;
+        public static final int title_activity_google_map_v2=0x7f050034;
+        public static final int title_activity_login=0x7f050051;
+        public static final int title_activity_register=0x7f050052;
+        public static final int title_activity_search=0x7f050030;
+        public static final int title_activity_search_results=0x7f050033;
+        public static final int title_activity_show_group=0x7f05004d;
+        public static final int title_activity_show_organization=0x7f050050;
+        public static final int title_activity_show_user=0x7f05004b;
+        public static final int title_activity_sign_up=0x7f050053;
+        public static final int title_activity_view_organizations=0x7f05004f;
         public static final int tuter_catchphrase=0x7f05001f;
         public static final int tuter_version=0x7f050020;
         /**  ShowUserActivity Strings 
          */
-        public static final int tutor_details=0x7f050034;
+        public static final int tutor_details=0x7f050035;
+        public static final int welcome_Organizations=0x7f050027;
         public static final int welcome_logIn=0x7f050024;
         public static final int welcome_search=0x7f050026;
         public static final int welcome_signUp=0x7f050025;

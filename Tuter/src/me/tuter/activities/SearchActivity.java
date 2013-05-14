@@ -3,10 +3,10 @@ package me.tuter.activities;
 import java.util.List;
 
 import me.tuter.R;
+import me.tuter.datastructures.User;
 import me.tuter.fragments.SearchResultsMapFragment;
 import me.tuter.interfaces.GetSearchResultsTaskActivity;
 import me.tuter.tasks.GetSearchResultsTask;
-import me.tutor.datastructures.User;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;

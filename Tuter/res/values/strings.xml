@@ -10,6 +10,7 @@
     <string name="welcome_logIn">Log In</string>
     <string name="welcome_signUp">Sign Up</string>
     <string name="welcome_search">Search</string>
+    <string name="welcome_Organizations">Organizations</string>
 
     <!-- SearchActivity Strings -->
     <string name="search_courseLabel">Course</string>
@@ -63,5 +64,7 @@
     <string name="loading">Loading&#8230;</string>
     <string name="title_activity_show_group">Group Profile</string>
     <string name="title_activity_basic_show">BasicShowActivity</string>
+    <string name="title_activity_view_organizations">View Organizations</string>
+    <string name="title_activity_show_organization">Organization</string>
 
 </resources>

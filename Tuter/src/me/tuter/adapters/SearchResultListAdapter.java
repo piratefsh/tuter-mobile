@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import me.tuter.R;
-import me.tutor.datastructures.User;
+import me.tuter.datastructures.User;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;

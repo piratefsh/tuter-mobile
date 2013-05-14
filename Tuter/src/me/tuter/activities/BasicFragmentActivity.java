@@ -3,7 +3,7 @@ package me.tuter.activities;
 import java.util.List;
 
 import me.tuter.R;
-import me.tutor.datastructures.User;
+import me.tuter.datastructures.User;
 import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;

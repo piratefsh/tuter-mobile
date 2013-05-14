@@ -1,6 +1,6 @@
 package me.tuter.messages;
 
-import me.tutor.datastructures.Group;
+import me.tuter.datastructures.Group;
 
 import org.json.JSONException;
 

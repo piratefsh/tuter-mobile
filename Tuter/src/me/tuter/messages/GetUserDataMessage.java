@@ -1,6 +1,6 @@
 package me.tuter.messages;
 
-import me.tutor.datastructures.User;
+import me.tuter.datastructures.User;
 
 import org.json.JSONException;
 
