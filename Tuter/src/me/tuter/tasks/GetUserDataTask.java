@@ -8,7 +8,6 @@ import org.json.JSONException;
 import me.tuter.TuterConstants;
 import me.tuter.http.BasicHTTPConnection;
 import me.tuter.interfaces.GetUserDataTaskActivity;
-import me.tuter.messages.GetSearchResultsMessage;
 import me.tuter.messages.GetUserDataMessage;
 import me.tutor.datastructures.User;
 import android.content.Context;
@@ -16,6 +15,7 @@ import android.os.AsyncTask;
 
 public class GetUserDataTask extends AsyncTask<Void, Void, GetUserDataMessage> {
 	private GetUserDataTaskActivity mActivity;
+	@SuppressWarnings("unused")
 	private Context mContext;
 	private User mUser;
 	
@@ -34,6 +34,12 @@ public class GetUserDataTask extends AsyncTask<Void, Void, GetUserDataMessage> {
 	
 	protected void onPostExecute(GetUserDataMessage m) 
 	{
+		if(m == null || this.isCancelled())
+		{
+			this.mActivity.onTaskFail();
+			return;
+		}
+		
 		try {
 			mActivity.onGetUserDataTaskComplete(m.extractUser());
 		} catch (JSONException e) {
@@ -45,6 +51,14 @@ public class GetUserDataTask extends AsyncTask<Void, Void, GetUserDataMessage> {
 	{
 		BasicHTTPConnection httpConn = new BasicHTTPConnection(serviceURL);
 		InputStream in = httpConn.openHTTPConnection();
+		
+		//If connection fail to open
+		if(in == null)
+		{
+			this.cancel(true);
+			return null;
+		}
+		
 		String rawJSON = getResponseText(in);
 		httpConn.closeHTTPConnection();
 		return new GetUserDataMessage (rawJSON);

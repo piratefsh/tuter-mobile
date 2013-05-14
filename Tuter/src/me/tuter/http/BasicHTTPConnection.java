@@ -38,14 +38,21 @@ public class BasicHTTPConnection {
 	
 	private void setUpConnection() throws IOException
 	{
+		this.inputStream = null;
+		
 		URL urlToRequest 	= new URL(serviceURL);
 		urlConn				= (HttpURLConnection) urlToRequest.openConnection();
 		urlConn.setConnectTimeout(TuterConstants.CONN_TIMEOUT);
 		urlConn.setReadTimeout(TuterConstants.READ_TIMEOUT);
-		
+		urlConn.setInstanceFollowRedirects(true);
 		//handle issues
 		int statusCode = urlConn.getResponseCode();
-		if(statusCode != HttpURLConnection.HTTP_OK)
+		if(statusCode == HttpURLConnection.HTTP_MOVED_PERM || statusCode == HttpURLConnection.HTTP_MOVED_TEMP)
+		{
+			urlConn.getInputStream();
+			Log.d(TAG, "Redirected to:" + urlConn.getURL());
+		}
+		else if(statusCode != HttpURLConnection.HTTP_OK)
 		{
 			Log.d(TAG, "Connection error: " + statusCode);
 		}
@@ -64,10 +71,13 @@ public class BasicHTTPConnection {
 		{
 			Log.d(TAG, "Connection timeout");
 			e.printStackTrace();
+			return null;
 		}
 		catch (IOException e) 
 		{
+			Log.d(TAG, "Connection error");
 			e.printStackTrace();
+			return null;
 		}		
 		return inputStream;
 	}

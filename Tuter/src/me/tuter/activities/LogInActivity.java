@@ -1,14 +1,31 @@
 package me.tuter.activities;
 
+import java.io.IOException;
+
 import me.tuter.R;
+import me.tuter.TuterConstants;
+
+import org.apache.http.client.HttpResponseException;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
@@ -21,20 +38,12 @@ import android.widget.TextView;
  * well.
  */
 public class LogInActivity extends Activity {
-    /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello",
-            "bar@example.com:world"
-    };
-
+	public final static String TAG = "LogInActivity"; 
     /**
      * The default email to populate the email field with.
      */
     public static final String EXTRA_EMAIL = "com.example.android.authenticatordemo.extra.EMAIL";
-
+    private SharedPreferences mPreferences;
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -56,6 +65,8 @@ public class LogInActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login);
+        
+        this.mPreferences = this.getSharedPreferences(TuterConstants.NAME, Context.MODE_PRIVATE);
 
         // Set up the login form.
         mEmail = getIntent().getStringExtra(EXTRA_EMAIL);
@@ -64,7 +75,8 @@ public class LogInActivity extends Activity {
 
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
+           
+        	@Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
                 if (id == R.id.login || id == EditorInfo.IME_NULL) {
                     attemptLogin();
@@ -145,9 +157,9 @@ public class LogInActivity extends Activity {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             mLoginStatusMessageView.setText(R.string.login_progress_signing_in);
-            showProgress(true);
+            showProgress(false);
             mAuthTask = new UserLoginTask();
-            mAuthTask.execute((Void) null);
+            mAuthTask.execute(TuterConstants.LOGIN_API_ENDPOINT_URL);
         }
     }
 
@@ -195,40 +207,72 @@ public class LogInActivity extends Activity {
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
      */
-    public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
-        @Override
-        protected Boolean doInBackground(Void... params) {
-            // TODO: attempt authentication against a network service.
+    public class UserLoginTask extends AsyncTask<String, Void, JSONObject> {
+        protected JSONObject doInBackground(String... urls) {
+        	DefaultHttpClient client = new DefaultHttpClient();
+            HttpPost post = new HttpPost(urls[0]);
+            JSONObject holder = new JSONObject();
+            JSONObject userObj = new JSONObject();
+            String response = null;
+            JSONObject json = new JSONObject();
 
-            try {
-                // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return false;
+            try{
+            	// Set error return values
+            	json.put("email", false);
+            	json.put("info", "Something went wrong. Retry.");
+            	
+            	// Set user password and email
+            	userObj.put("email", mEmail);
+            	userObj.put("password", mPassword);
+            	holder.put("user", userObj);
+            	
+            	StringEntity se = new StringEntity(holder.toString());
+            	post.setEntity(se);
+            	
+            	// Set the request header for the login
+            	post.setHeader("Accept", "application/json");
+            	post.setHeader("Content-Type", "application/json");
+            	
+            	ResponseHandler<String> responseHandler = new BasicResponseHandler();
+            	response = client.execute(post, responseHandler);
+            	json = new JSONObject(response);
+            } catch (HttpResponseException e) {
+            	e.printStackTrace();
+            	Log.e("ClientProtocol", "", e);
+            	try {
+            		json.put("info", "Invalid Email/Password combination. Please retry.");
+            	} catch (JSONException j){
+            		j.printStackTrace();
+            	}
+            } catch (IOException e){
+            	e.printStackTrace();
+            	Log.e("IO", "", e);
+            } catch (JSONException e){
+            	e.printStackTrace();
+            	Log.e("JSON", "", e);
             }
 
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
-            }
-
-            // TODO: register the new account here.
-            return true;
+            return json;
         }
 
-        @Override
-        protected void onPostExecute(final Boolean success) {
-            mAuthTask = null;
-            showProgress(false);
-
-            if (success) {
-                finish();
-            } else {
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
-                mPasswordView.requestFocus();
+        protected void onPostExecute(JSONObject json) {
+            try{
+            	if(json.getBoolean("success")){
+            		SharedPreferences.Editor editor = mPreferences.edit();
+            		
+            		editor.putString("AuthToken", json.getJSONObject("data").getString("auth_token"));
+            		editor.commit();
+            		
+            		Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+            		startActivity(intent);
+            		
+            		Log.d(TAG, "Successful Login");
+            		finish();
+            	}
+            } catch (Exception e) {
+            	e.printStackTrace();
+            } finally {
+            	super.onPostExecute(json);
             }
         }
 

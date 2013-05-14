@@ -24,11 +24,17 @@
     <string name="action_settings">Settings</string>
 
     <!-- SearchResultsActivity Strings -->
+    <string name="search_params">Searching for: </string>
     <string name="title_activity_search_results">Search Results</string>
     <string name="title_activity_google_map_v2">GoogleMapV2</string>
-    
+
     <!-- ShowUserActivity Strings -->
     <string name="tutor_details">Age:\t#{AGE}\nYear:\t#{YEAR}\nRate:\t#{RATE}</string>
+    <string name="show_user_groups">Tutoring Groups</string>
+
+    <!-- ShowGroupActivity String -->
+    <string name="show_group_tutors_header">Tutors</string>
+    <string name="show_group_students_header">Students</string>
 
     <!-- LogInActivity and SignUpActivity Strings -->
     <string name="prompt_email">Email</string>
@@ -46,10 +52,16 @@
     <string name="signup_checkbox_student">Student</string>
     <string name="signup_checkbox_tutor">Tutor</string>
     <string name="signup_im_a">I\'m a</string>
-
+	
+    <!-- Error messages -->
+    <string name="network_err_msg">Network Error. Fail to connect to server.</string>
+    <string name="refresh_button">Refresh</string>
+    
     <!-- Dummy Text -->
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
-    <string name="title_activity_show_user">ShowUserActivity</string>
-    <string name="loading">Loading...</string>
+    <string name="title_activity_show_user">User Profile</string>
+    <string name="loading">Loading&#8230;</string>
+    <string name="title_activity_show_group">Group Profile</string>
+    <string name="title_activity_basic_show">BasicShowActivity</string>
 
 </resources>

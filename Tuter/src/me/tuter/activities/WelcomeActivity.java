@@ -27,6 +27,8 @@ public class WelcomeActivity extends Activity {
 		this.checkPlayServicesAvailable();
 	}
 	
+	
+	
 	private void checkPlayServicesAvailable()
 	{
 		//Check if Google Play Services is available

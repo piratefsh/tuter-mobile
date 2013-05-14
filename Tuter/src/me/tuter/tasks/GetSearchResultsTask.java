@@ -26,17 +26,34 @@ public class GetSearchResultsTask extends AsyncTask<Void, Void, GetSearchResults
 		
 		return requestWebService(TuterConstants.DOMAIN + TuterConstants.URI_SEARCH);
 	}
-	
+	 
 	@Override
 	protected void onPostExecute(GetSearchResultsMessage m)
 	{
-		mActivity.onGetSearchResultsTaskComplete(m.extractTutors());
+		if(this.isCancelled() || m == null)
+			this.mActivity.onTaskFail();
+		else
+			mActivity.onGetSearchResultsTaskComplete(m.extractTutors());
+	}
+	
+	@Override
+	protected void onCancelled()
+	{
+		this.mActivity.onTaskFail();
 	}
 	
 	public GetSearchResultsMessage requestWebService(String serviceURL)
 	{
 		BasicHTTPConnection httpConn = new BasicHTTPConnection(serviceURL);
 		InputStream in = httpConn.openHTTPConnection();
+		
+		//If connection fail to open
+		if(in == null)
+		{
+			this.cancel(true);
+			return null;
+		}
+		
 		String rawJSON = getResponseText(in);
 		httpConn.closeHTTPConnection();
 		return new GetSearchResultsMessage(rawJSON, mContext);

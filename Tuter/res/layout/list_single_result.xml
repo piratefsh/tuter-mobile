@@ -15,6 +15,9 @@
         android:id="@+id/text2"
     	android:layout_height="wrap_content"
         android:layout_width="fill_parent"
-        android:text="@string/lorem_ipsum"></TextView>
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:text="@string/lorem_ipsum"
+        style="@style/grey_text"></TextView>
 
 </LinearLayout>
