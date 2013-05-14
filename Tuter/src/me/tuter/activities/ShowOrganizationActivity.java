@@ -7,7 +7,9 @@ import me.tutor.datastructures.Organization;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ShowOrganizationActivity extends Activity
@@ -35,10 +37,22 @@ public class ShowOrganizationActivity extends Activity
 	
 	private void populateView(Organization t)
 	{
+		ImageView defaultPic = (ImageView) findViewById(R.id.imageView1);
+		
 		TextView fullNameView = (TextView) findViewById(R.id.name);
 		fullNameView.setText(t.getName());
+		
+		TextView descriptionView = (TextView) findViewById(R.id.description);
+		descriptionView.setText(t.getDescription());
+		
+		TextView websiteView = (TextView) findViewById(R.id.website);
+		websiteView.setText(t.getWebsite());
+		
 		TextView emailView = (TextView) findViewById(R.id.email);
 		emailView.setText(t.getEmail());
+		
+		TextView aboutView = (TextView) findViewById(R.id.about_organization);
+		aboutView.setText("\t\t" + t.getAbout());
 	}
 	
 	
