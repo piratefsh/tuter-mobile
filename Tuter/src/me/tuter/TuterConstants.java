@@ -7,7 +7,7 @@ public class TuterConstants {
 	public static final String URI_SEARCH= "/search.json";
 	public static final String URI_USER= "/user/";
 	public static final String JSON_EXT= ".json";
-	public static final String ORGS_LIST= "/organizations.json";
+	public static final String ORGS_LIST= "/organizations";
 
 	public static final int READ_TIMEOUT 	= 20000;
 	public static final int CONN_TIMEOUT 	= 20000;

@@ -26,7 +26,7 @@ public class GetOrganizationsTask extends AsyncTask<Void, Void, GetOrganizations
 	@Override
 	protected GetOrganizationsMessage doInBackground(Void... params)
 	{
-		return requestWebService(TuterConstants.DOMAIN + TuterConstants.ORGS_LIST);
+		return requestWebService(TuterConstants.DOMAIN + TuterConstants.ORGS_LIST + TuterConstants.JSON_EXT);
 	}
 	
 	

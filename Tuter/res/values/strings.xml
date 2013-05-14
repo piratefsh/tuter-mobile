@@ -47,6 +47,8 @@
     <string name="signup_checkbox_student">Student</string>
     <string name="signup_checkbox_tutor">Tutor</string>
     <string name="signup_im_a">I\'m a</string>
+    
+    <string name="programs">Programs</string>
 
     <!-- Dummy Text -->
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
