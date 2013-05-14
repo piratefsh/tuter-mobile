@@ -1,6 +1,7 @@
 package me.tuter.tasks;
 
-import org.json.JSONException;
+import java.io.InputStream;
+import java.util.Scanner;
 
 import me.tuter.datastructures.Organization;
 import me.tuter.datastructures.User;
@@ -8,31 +9,54 @@ import me.tuter.interfaces.GetOrgDataTaskActivity;
 import me.tuter.interfaces.GetUserDataTaskActivity;
 import me.tuter.messages.GetOrgDataMessage;
 import me.tuter.messages.GetUserDataMessage;
+import me.tuter.TuterConstants;
+import me.tuter.activities.ShowOrganizationActivity;
+import me.tuter.http.BasicHTTPConnection;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
-public class GetOrgDataTask
+public class GetOrgDataTask extends AsyncTask<Void, Void, String>
 {
-	private GetOrgDataTaskActivity 	mActivity;
+	private ShowOrganizationActivity 	mActivity;
 	private Context 				mContext;
 	private Organization 			mOrganization;
 	
 	
-	public GetOrgDataTask(GetOrgDataTaskActivity a, Context c, Organization t)
+	public GetOrgDataTask(ShowOrganizationActivity a, Context c, Organization o)
 	{
 		this.mContext 		= c;
 		this.mActivity 		= a;
-		this.mOrganization 	= t;
+		this.mOrganization  = o;
 	}
 	
 	
-	protected void onPostExecute(GetOrgDataMessage m) 
+	protected void onPostExecute(String m) 
 	{
-		try {
-			mActivity.onGetOrgDataTaskComplete(m.extractOrg());
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
+		this.mActivity.receiveProgramsString(m);
+	}
+
+
+	@Override
+	protected String doInBackground(Void... params) {
+		String url = TuterConstants.DOMAIN + TuterConstants.ORGS_LIST + "/" + mOrganization.getID() + TuterConstants.JSON_EXT;
+		Log.d("GetOrgTask", url);
+		return requestWebService(url);
 	}
 	
+	
+	public String requestWebService(String serviceURL)
+	{
+		BasicHTTPConnection httpConn = new BasicHTTPConnection(serviceURL);
+		InputStream in = httpConn.openHTTPConnection();
+		String rawJSON = getResponseText(in);
+		httpConn.closeHTTPConnection();
+		return rawJSON;
+	}
+	
+	
+	public String getResponseText(InputStream instream)
+	{
+		return new Scanner(instream).useDelimiter("\\A").next();
+	}
 }

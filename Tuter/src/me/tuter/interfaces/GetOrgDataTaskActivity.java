@@ -3,5 +3,5 @@ package me.tuter.interfaces;
 import me.tuter.datastructures.Organization;
 
 public interface GetOrgDataTaskActivity {
-	void onGetOrgDataTaskComplete(Organization o);
+	void onGetOrgDataTaskComplete(String s);
 }

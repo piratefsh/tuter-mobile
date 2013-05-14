@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:padding="12dp"
     tools:context=".ShowUserActivity" >
-    
         
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -38,10 +37,11 @@
 		        android:text="@string/loading"
 	        	android:id="@+id/description"
 	        	android:textStyle="italic"
-	        	android:textColor="@color/light_grey"
-	        	android:textSize="13sp" />
+	        	android:textColor="@color/tuter_grey"
+	        	android:textSize="15sp" />
   		</LinearLayout>
     </RelativeLayout>
+    
     
     <LinearLayout
         android:layout_marginTop="12dp"
@@ -49,34 +49,47 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_below="@id/text_info">
-   	    <TextView
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/loading"
-        	android:id="@+id/website"
-        	android:autoLink="web"
-        	android:textSize="18sp"/>
-	    <TextView
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/loading"
-        	android:id="@+id/email"
-        	android:textSize="18sp"
-        	android:autoLink="email"
-        	android:layout_marginBottom="20dp" />
-   	    <TextView
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/loading"
-        	android:id="@+id/about_organization"
-        	android:textSize="18sp"
-     	    android:layout_marginBottom="20dp" /> 
-    
-	    <ListView
-	        android:id="@+id/programs_list"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content" >
-	    </ListView>
+        
+        <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+		      <LinearLayout
+        		android:layout_width="fill_parent"
+        		android:layout_height="wrap_content"
+        		android:orientation="vertical">
+		   	    <TextView
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:text="@string/loading"
+		        	android:id="@+id/website"
+		        	android:autoLink="web"
+		        	android:textSize="18sp"/>
+			    <TextView
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:text="@string/loading"
+		        	android:id="@+id/email"
+		        	android:textSize="18sp"
+		        	android:autoLink="email"
+		        	android:layout_marginBottom="20dp" />
+		   	    <TextView
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:text="@string/loading"
+		        	android:id="@+id/about_organization"
+		        	android:textSize="18sp"
+		     	    android:layout_marginBottom="20dp" /> 
+		    	<TextView
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        style="@style/h1_text"
+			        android:text="@string/programs"/>
+			    <ListView
+			        android:id="@+id/programs_list"
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content" >
+			    </ListView>
+		    </LinearLayout>
+    	</ScrollView>
     </LinearLayout>
-    
 </RelativeLayout>

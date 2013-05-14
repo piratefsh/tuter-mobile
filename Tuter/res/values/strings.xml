@@ -58,6 +58,8 @@
     <string name="network_err_msg">Network Error. Fail to connect to server.</string>
     <string name="refresh_button">Refresh</string>
     
+    
+    <string name="programs">Programs</string>
     <!-- Dummy Text -->
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
     <string name="title_activity_show_user">User Profile</string>
